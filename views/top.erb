@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script><![endif]-->
+  <title>Sudoku spielen. Top players.</title>
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <link href="/css/style.css" rel="stylesheet" type="text/css" media="all">
+  <link href="/css/fa.css" rel="stylesheet" type="text/css" media="all">
+</head>
+
+<body>
+
+<div class="wrapper">
+
+  <header class="header">
+    <a href="/" class="logo"></a>
+    <ul class="menu">
+      <li><a href="/">Sudoku Spielen</a></li>
+      <li><a href="/">Regeln</a></li>
+      <li><a href="/">Strategie</a></li>
+      <li><a href="/">Geschichte Sudoku</a></li>
+    </ul>
+  </header><!-- .header-->
+
+  <% if flash[:notice].present? || flash[:alert].present? %>
+    <section class="flash-message">
+      <% if flash[:notice] %>
+        <h2 class="notice"><%= flash[:notice] %></h2>
+      <% end %>
+
+      <% if flash[:alert] %>
+        <h2 class="alert"><%= flash[:alert] %></h2>
+      <% end %>
+    </section>
+  <% end %>
+
+  <div class="middle">
+
+    <aside class="left-sidebar">
+      <p>Best players:</p>
+      <ul class="styled">
+        <% @top_players.each do |player| %>
+        <li><%= player.name %> - <%= player.scores %></li>
+        <% end %>
+      </ul>
+    </aside><!-- .left-sidebar -->
+
+    <div class="container">
+      <main class="content">
+      <header>
+          <h1>Top Players - October 2016</h1>
+      </header>
+      <div>
+        <table class="scores-table">
+          <thead>
+            <tr>
+              <th rowspan="2">#</th>
+              <th rowspan="2">User Name</th>
+              <th colspan="5">Solved Sudoku</th>
+              <th rowspan="2">Score</th>
+              <th rowspan="2">Last Played</th>
+            </tr>
+            <tr>
+              <th>Easy</th>
+              <th>Medium</th>
+              <th>Hard</th>
+              <th>Expert</th>
+              <th>Insane</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @top_players.each_with_index do |player, index| %>
+              <tr>
+                <td><%= index+1 %></td>
+                <td><%= player.name %></td>
+                <td><%= player.game_counter.easy %></td>
+                <td><%= player.game_counter.medium %></td>
+                <td><%= player.game_counter.hard %></td>
+                <td><%= player.game_counter.expert %></td>
+                <td><%= player.game_counter.insane %></td>
+                <td><%= player.scores %></td>
+                <td><%= player.game_counter.updated_at.strftime("%b %d, %Y") %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Willkommen bei Sudoku-Spielen.org! Bei uns finden Sie ein riesiges Angebot an kostenlosen Sudoku Spielen, Strategien und Tips. Viele Sudoku Spieler haben auch Talent für andere Online Spiele, inklusive Echtgeld-Spiele. </p>
+        </main><!-- .content -->
+      </div><!-- .container-->
+
+      <aside class="right-sidebar">
+        <% if current_user.present? %>
+          <div>
+            <p>Hello, <%= current_user.name %>!</p>
+            <p>You have <%= current_user.scores %> scores.</p>
+            <form action="/sign_out" method="post">
+              <input type="hidden" name="_method" value="DELETE">
+              <input type="submit" value="Sign out">
+            </form>
+          </div>
+        <% else %>
+          <form action="/sign_in" method="POST" class="user-form">
+            <fieldset>
+              <legend>Sign in</legend>
+              <div class="form-group">
+                <label for="login-email">Email:</label>
+                <input id="login-email" type="email" name="email" />
+              </div>
+              <div class="form-group">
+                <label for="login-password">Password:</label>
+                <input id="login-password" type="password" name="password" />
+              </div>
+              <div class="form-group">
+                <input type="submit" value="Sign in"/>
+              </div>
+            </fieldset>
+          </form>
+          <hr>
+          <form action="/sign_up" method="POST" class="user-form">
+            <fieldset>
+              <legend>Sign up</legend>
+              <div class="form-group">
+                <label for="sign_up-email">Email:</label>
+                <input id="sign_up-email" type="email" name="email" />
+              </div>
+              <div class="form-group">
+                <label for="sign_up-password">Password:</label>
+                <input id="sign_up-password" type="password" name="password" />
+              </div>
+              <div class="form-group">
+                <input type="submit" value="Sign up"/>
+              </div>
+            </fieldset>
+          </form>
+        <% end %>
+      </aside><!-- .right-sidebar -->
+
+  </div><!-- .middle-->
+
+  <footer class="footer">
+
+  <ul class="menu_f">
+      <li><a href="/">Datenschutzerklärung</a></li>
+        <li><a href="/">Impressum</a></li>
+        </ul>
+    <div class="copyright">© Sudoku-Spielen.org 2016 - Alle Rechte vorbehalten</div>
+  </footer><!-- .footer -->
+
+</div><!-- .wrapper -->
+<script data-main="/js/main" src="js/ext/require.js"></script>
+</body>
+</html>
