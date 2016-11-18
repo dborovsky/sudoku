@@ -14,6 +14,8 @@ set :public_folder, File.dirname(__FILE__) + '/assets'
 set :database, { adapter: "postgresql", database: "sudoku_database", pool: 5, timeout: 5000 }
 set :static_cache_control, [:public, {:no_store => 1}]
 
+ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'postgres://localhost/sudoku_database')
+
 LEVELS_TABLE = {
   '35': 'easy', '40': 'medium',
   '45': 'hard', '50': 'expert',
