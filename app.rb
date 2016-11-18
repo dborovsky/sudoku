@@ -6,6 +6,7 @@ require "./models/user"
 require "./models/game_counter"
 require "./models/stash"
 require "json"
+require "activerecord"
 
 enable :static
 enable :sessions
@@ -14,7 +15,16 @@ set :public_folder, File.dirname(__FILE__) + '/assets'
 set :database, { adapter: "postgresql", database: "sudoku_database", pool: 5, timeout: 5000 }
 set :static_cache_control, [:public, {:no_store => 1}]
 
-ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'postgres://localhost/sudoku_database')
+db = ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'postgres://localhost/sudoku_database')
+
+ActiveRecord::Base.establish_connection(
+      :adapter => db.scheme == 'postgres' ? 'postgresql' : db.scheme,
+      :host     => db.host,
+      :username => db.user,
+      :password => db.password,
+      :database => db.path[1..-1],
+      :encoding => 'utf8'
+  )
 
 LEVELS_TABLE = {
   '35': 'easy', '40': 'medium',
