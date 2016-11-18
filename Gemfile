@@ -4,7 +4,7 @@ gem "rake"
 gem "sinatra"
 gem "sinatra-activerecord"
 gem "sinatra-flash"
-gem "sqlite3"
+gem "pg"
 gem "bcrypt"
 
 group :development do
