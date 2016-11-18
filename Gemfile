@@ -6,8 +6,8 @@ gem "sinatra-activerecord"
 gem "sinatra-flash"
 gem "pg"
 gem "bcrypt"
+gem "pry"
 
 group :development do
-  gem "pry"
   gem "shotgun"
 end

@@ -6,7 +6,7 @@ require "./models/user"
 require "./models/game_counter"
 require "./models/stash"
 require "json"
-require "activerecord"
+#require "activerecord"
 
 enable :static
 enable :sessions
@@ -17,14 +17,14 @@ set :static_cache_control, [:public, {:no_store => 1}]
 
 db = ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'postgres://localhost/sudoku_database')
 
-ActiveRecord::Base.establish_connection(
-      :adapter => db.scheme == 'postgres' ? 'postgresql' : db.scheme,
-      :host     => db.host,
-      :username => db.user,
-      :password => db.password,
-      :database => db.path[1..-1],
-      :encoding => 'utf8'
-  )
+#ActiveRecord::Base.establish_connection(
+ #     :adapter => db.scheme == 'postgres' ? 'postgresql' : db.scheme,
+  #    :host     => db.host,
+   #   :username => db.user,
+    #  :password => db.password,
+     # :database => db.path[1..-1],
+      #:encoding => 'utf8'
+  #)
 
 LEVELS_TABLE = {
   '35': 'easy', '40': 'medium',
