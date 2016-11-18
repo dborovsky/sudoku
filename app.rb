@@ -36,13 +36,44 @@ get '/' do
   if params[:stashed_game].present?
     @stashed_game = Stash.find(params[:stashed_game])
   end
-  erb :index
+  erb :index, :layout => :default
 end
 
-get '/top' do
+get '/kontakte' do
+  erb :contacts, :layout => :default
+end
+
+get '/rangliste' do
   @top_players = User.all.order('scores desc')
   erb :top
 end
+
+get '/regeln' do
+  erb :rules, :layout => :default
+end
+
+get '/losungstechniken' do
+  erb :howto, :layout => :default
+end
+
+get '/geschichte' do
+  erb :history, :layout => :default
+end
+
+get '/datenschutzerklarung' do
+  erb :policy, :layout => :default
+end
+
+get '/indexold' do
+  @top_players = User.all.order('scores desc')
+  @stashed_games = current_user ? current_user.stashes : []
+  if params[:stashed_game].present?
+    @stashed_game = Stash.find(params[:stashed_game])
+  end
+  erb :indexold
+end
+
+
 
 post '/sign_up' do
   # создаём пользователя
