@@ -2,7 +2,7 @@
   -webkit-tap-highlight-color: transparent;
   background-color: #2d598a;
   color: #fff;
-  border: solid 1px #2d598a;
+  border: none;
   box-sizing: border-box;
   clear: both;
   font-size: 15px;
@@ -14,8 +14,8 @@
   font-family: inherit;
   font-size: 14px;
   font-weight: normal;
-  height: 42px;
-  line-height: 40px;
+  height: 36px;
+  line-height: 36px;
   outline: none;
   padding-left: 18px;
   padding-right: 30px;
@@ -29,10 +29,10 @@
           user-select: none;
   white-space: nowrap;
   width: auto; }
-  .nice-select:hover {
-    border-color: #dbdbdb; }
-  .nice-select:active, .nice-select.open, .nice-select:focus {
-    border-color: #999; }
+  /*.nice-select:hover {
+    border-color: #dbdbdb; }*/
+  /*.nice-select:active, .nice-select.open, .nice-select:focus {
+    border-color: #999; }*/
   .nice-select:after {
     border-bottom: 2px solid #999;
     border-right: 2px solid #999;

@@ -53,9 +53,19 @@ h1, h2 {
 .text.aligned.right {
   text-align: right; }
 
+.floated.left {
+  float: left }
+.floated.right {
+  float: right; }
+
 .container {
   margin: 0 auto;
   max-width: 960px; }
+
+.controls .ctrl {
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
 
 .headline {
   padding-top: 18px;
@@ -109,6 +119,8 @@ h1, h2 {
 
 .no-padding.mobile {
   padding: 0px; }
+.no-padding {
+  padding: 0px; }
 
 @media (min-width: 768px) {
   .column {
@@ -118,6 +130,8 @@ h1, h2 {
     padding-right: 10px; }
     .column.full {
       width: 100%; }
+    .column.four-fifth {
+      width: 80%; }
     .column.two-thirds {
       width: 66.7%; }
     .column.two-fourth {
@@ -128,6 +142,8 @@ h1, h2 {
       width: 33.3%; }
     .column.fourth {
       width: 25%; }
+    .column.fifth {
+      width: 20%; }
     .column.flow-opposite {
       float: right; } }
 .clearfix {
@@ -147,7 +163,7 @@ h1, h2 {
   text-decoration: none;
   border: none;
   background: none;
-  transition: all .5s ease;
+  transition: all .3s ease;
   height: 40px;
   padding: 0 30px;
   line-height: 40px;
@@ -158,6 +174,18 @@ h1, h2 {
   background-color: #2d598a;
   color: #ffffff;
   cursor: pointer; }
+  .btn.game {
+    height: 36px;
+    color: #2669b5;
+    text-transform: none;
+    font-weight: 500;
+    line-height: 36px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border: none;
+    background-color: #ccdff4; }
+  .btn.game:hover {
+    background-color: #9abce3; }
   .btn.hidden {
     display: none; }
   .btn:hover {
@@ -169,7 +197,7 @@ h1, h2 {
 a {
   color: #2669b5;
   text-decoration: none;
-  transition: all .5s ease; }
+  transition: all .3s ease; }
   a:hover {
     text-decoration: underline; }
 
@@ -493,6 +521,31 @@ a {
 
 .auth-dropdown {
   background-color: #dfeeff; }
+
+div.timer {
+  font-weight: 700;
+  font-size: 18px;
+  margin-top: 34px; }
+
+.game-menu {
+  margin: 30px 0 0 0; }
+  .game-menu .item {
+    margin-bottom: 5px; }
+    .game-menu .item a {
+      padding-left: 5px; }
+
+.icon {
+  width: 20px;
+  height: 18px;
+  display: inline-block; }
+  .icon.timer {
+    background: url("../img/icon-timer.png"); }
+  .icon.save {
+    background: url("../img/icon-save.png"); }
+  .icon.open {
+    background: url("../img/icon-open.png"); }
+  .icon.print {
+    background: url("../img/icon-print.png"); }
 
 .footer {
   height: 82px;

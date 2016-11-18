@@ -11,7 +11,7 @@ enable :static
 enable :sessions
 
 set :public_folder, File.dirname(__FILE__) + '/assets'
-set :database, { adapter: "sqlite3", database: "sudoku_database.sqlite3" }
+set :database, { adapter: "sqlite3", database: "sudoku_database.sqlite3", pool: 10 }
 set :static_cache_control, [:public, {:no_store => 1}]
 
 LEVELS_TABLE = {
