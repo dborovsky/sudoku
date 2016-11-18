@@ -81,6 +81,7 @@
 
 
 
+    $('select').niceSelect();
 
     $('.nav-auth').on('click', toggleAuthMenuItem);
     $('.toggle-link').on('click', toggleLink);
