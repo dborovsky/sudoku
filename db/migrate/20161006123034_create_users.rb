@@ -1,3 +1,7 @@
+require 'active_record'
+require 'circle'
+
+
 class CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
