@@ -37,7 +37,7 @@ Zeitschriften auf der ganzen Welt veröffentlicht. Extra für Sie haben wir die 
           <div class="game-menu">
             <div class="item">
               <i class="icon save"></i>
-              <a href="javascript:void(0)">Save game</a>
+              <a href="javascript:void(0)" data-remodal-target="modal-saves">Save game</a>
             </div>
             <div class="item">
               <i class="icon open"></i>
@@ -45,7 +45,7 @@ Zeitschriften auf der ganzen Welt veröffentlicht. Extra für Sie haben wir die 
             </div>
             <div class="item">
               <i class="icon print"></i>
-              <a href="javascript:void(0)">Print</a>
+              <a href="javascript:void(0)" id="print-btn">Print</a>
             </div>
           </div>
 
@@ -72,12 +72,12 @@ Zeitschriften auf der ganzen Welt veröffentlicht. Extra für Sie haben wir die 
           <div class="row clearfix grid-controls">
             <div class="controls">
               <div class="ctrl floated left">
-                <select>
-                  <option value="1">Easy</option>
-                  <option value="2">Medium</option>
-                  <option value="3">Hard</option>
-                  <option value="4">Expert</option>
-                  <option value="5">Insane</option>
+                <select class="generate">
+                  <option value="easy">Easy</option>
+                  <option value="medium">Medium</option>
+                  <option value="hard">Hard</option>
+                  <option value="expert">Expert</option>
+                  <option value="insane">Insane</option>
                 </select>
               </div>
 
