@@ -45,83 +45,19 @@
         </thead>
 
         <tbody>
+          <% @top_players.each_with_index do |player, index| %>
           <tr>
-            <td class="text aligned right">1</td>
-            <td class="text medium">harry.kiselev</td>
-            <td class="text aligned right desktop">46575</td>
-            <td class="text aligned right">45889</td>
-            <td class="text aligned right desktop">45888</td>
-            <td class="text aligned right desktop">56434</td>
-            <td class="text aligned right desktop">34344</td>
-            <td class="text medium aligned right">55453453</td>
-            <td class="text aligned right">Nov 15, 2016</td>
+            <td class="text aligned right"><%= index+1 %></td>
+            <td class="text medium"><%= player.name %></td>
+            <td class="text aligned right desktop"><%= player.game_counter.easy %></td>
+            <td class="text aligned right"><%= player.game_counter.medium %></td>
+            <td class="text aligned right desktop"><%= player.game_counter.hard %></td>
+            <td class="text aligned right desktop"><%= player.game_counter.expert %></td>
+            <td class="text aligned right desktop"><%= player.game_counter.insane %></td>
+            <td class="text medium aligned right"><%= player.scores %></td>
+            <td class="text aligned right"><%= player.game_counter.updated_at.strftime("%b %d, %Y") %></td>
           </tr>
-          <tr>
-            <td class="text aligned right">1</td>
-            <td class="text medium">harry.kiselev</td>
-            <td class="text aligned right desktop">46575</td>
-            <td class="text aligned right">45889</td>
-            <td class="text aligned right desktop">45888</td>
-            <td class="text aligned right desktop">56434</td>
-            <td class="text aligned right desktop">34344</td>
-            <td class="text medium aligned right">55453453</td>
-            <td class="text aligned right">Nov 15, 2016</td>
-          </tr>
-          <tr>
-            <td class="text aligned right">1</td>
-            <td class="text medium">harry.kiselev</td>
-            <td class="text aligned right desktop">46575</td>
-            <td class="text aligned right">45889</td>
-            <td class="text aligned right desktop">45888</td>
-            <td class="text aligned right desktop">56434</td>
-            <td class="text aligned right desktop">34344</td>
-            <td class="text medium aligned right">55453453</td>
-            <td class="text aligned right">Nov 15, 2016</td>
-          </tr>
-          <tr>
-            <td class="text aligned right">1</td>
-            <td class="text medium">harry.kiselev</td>
-            <td class="text aligned right desktop">46575</td>
-            <td class="text aligned right">45889</td>
-            <td class="text aligned right desktop">45888</td>
-            <td class="text aligned right desktop">56434</td>
-            <td class="text aligned right desktop">34344</td>
-            <td class="text medium aligned right">55453453</td>
-            <td class="text aligned right">Nov 15, 2016</td>
-          </tr>
-          <tr>
-            <td class="text aligned right">1</td>
-            <td class="text medium">harry.kiselev</td>
-            <td class="text aligned right desktop">46575</td>
-            <td class="text aligned right">45889</td>
-            <td class="text aligned right desktop">45888</td>
-            <td class="text aligned right desktop">56434</td>
-            <td class="text aligned right desktop">34344</td>
-            <td class="text medium aligned right">55453453</td>
-            <td class="text aligned right">Nov 15, 2016</td>
-          </tr>
-          <tr>
-            <td class="text aligned right">1</td>
-            <td class="text medium">harry.kiselev</td>
-            <td class="text aligned right desktop">46575</td>
-            <td class="text aligned right">45889</td>
-            <td class="text aligned right desktop">45888</td>
-            <td class="text aligned right desktop">56434</td>
-            <td class="text aligned right desktop">34344</td>
-            <td class="text medium aligned right">55453453</td>
-            <td class="text aligned right">Nov 15, 2016</td>
-          </tr>
-          <tr>
-            <td class="text aligned right">1</td>
-            <td class="text medium">harry.kiselev</td>
-            <td class="text aligned right desktop">46575</td>
-            <td class="text aligned right">45889</td>
-            <td class="text aligned right desktop">45888</td>
-            <td class="text aligned right desktop">56434</td>
-            <td class="text aligned right desktop">34344</td>
-            <td class="text medium aligned right">55453453</td>
-            <td class="text aligned right">Nov 15, 2016</td>
-          </tr>
+          <% end %>
         </tbody>
       </table>
 

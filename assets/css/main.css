@@ -497,6 +497,13 @@ a {
       position: absolute;
       left: 19px;
       top: 11px; }
+    .nav .icon-user {
+      width: 25px;
+      height: 30px;
+      background: url("../img/icon-user.png");
+      position: absolute;
+      left: 19px;
+      top: 11px; }
   .nav .best-dropdown {
     display: none;
     cursor: default;
@@ -639,7 +646,7 @@ div.timer {
     font-weight: 300;
     padding: 13px; }
     .best-players-body .item {
-      display: inline-block;
+      display: block;
       margin-bottom: 10px; }
       .best-players-body .item .number {
         padding-right: 10px;

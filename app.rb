@@ -36,6 +36,7 @@ get '/' do
   if params[:stashed_game].present?
     @stashed_game = Stash.find(params[:stashed_game])
   end
+  @hidden = 'hidden'
   erb :index, :layout => :default
 end
 

@@ -79,7 +79,8 @@ define('validator', ['system', 'timer', 'levels', 'scores_counter'], function(Sy
             return true;
         }
         else {
-            System.printAlert("Your solution is wrong!");
+            // System.printAlert("Your solution is wrong!");
+            window.remodals.remodalWrong.open();
             return false;
         }
     };

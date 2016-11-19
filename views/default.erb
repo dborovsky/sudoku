@@ -70,11 +70,17 @@
           </div>
 
           <div class="right-side">
-
-            <a href="javascript:void(0)" class="nav-auth">
-              <i class="icon-auth"></i>
-              <span>Authorization</span>
-            </a>
+            <% if current_user.present? %>
+              <a href="javascript:void(0)" class="nav-auth logged">
+                <i class="icon-user"></i>
+                <span><%= current_user.name %></span>
+              </a>
+            <% else %>
+              <a href="javascript:void(0)" class="nav-auth">
+                <i class="icon-auth"></i>
+                <span>Authorization</span>
+              </a>
+            <% end %>
 
             <a href="javascript:void(0)" class="nav-best mobile"></a>
 
@@ -126,31 +132,45 @@
             </div>
 
             <div class="auth-dropdown">
-              <form action="/sign_in" method="POST" >
-                <input type="text" placeholder="E-mail">
-                <input type="password" placeholder="Password">
+              <div class="logged">
+                <% if current_user.present? %>
+                  <form action="/sign_out" method="post">
+                    <span>Score: <%= current_user.scores %></span><br><br>
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit" class="btn primary">Sign out</button>
+                  </form>
+                <% end %>
+              </div>
+
+              <div class="unlogged <% if current_user.present? %>
+                                   <%= 'hidden' %>
+                                   <% end %>">
+                <form action="/sign_in" method="POST" >
+                  <input type="text" placeholder="E-mail" name="email">
+                  <input type="password" placeholder="Password" name="password">
+
+                  <div class="toogle-block">
+                    <a href="javascript:void(0)" class="toggle-link tr-open" data-block-name="block-lost-password">Lost password?</a>
+                  </div>
+                  <div data-block-name="block-lost-password" class="hidden">
+                      <input type="text" placeholder="E-mail">
+                      <button type="submit" class="btn">Send password</button>
+                  </div>
+
+                  <button type="submit" class="btn" id="sign-in-btn">Sign in</button>
+                </form>
 
                 <div class="toogle-block">
-                  <a href="javascript:void(0)" class="toggle-link tr-open" data-block-name="block-lost-password">Lost password?</a>
+                  <a href="javascript:void(0)" class="toggle-link tr-open" data-block-name="block-registration">Registration</a>
                 </div>
-                <div data-block-name="block-lost-password" class="hidden">
-                    <input type="text" placeholder="E-mail">
-                    <button type="submit" class="btn">Send password</button>
+                <div data-block-name="block-registration" class="hidden">
+                  <form action="/sign_up" method="POST">
+                    <input type="text" placeholder="E-mail" name="email">
+                    <input type="password" placeholder="Password" name="password">
+                    <input type="password" placeholder="Repeat password">
+                    <button type="submit" class="btn">Sign up</button>
+                  </form>
                 </div>
-
-                <button type="submit" class="btn" id="sign-in-btn">Sign in</button>
-              </form>
-
-              <div class="toogle-block">
-                <a href="javascript:void(0)" class="toggle-link tr-open" data-block-name="block-registration">Registration</a>
-              </div>
-              <div data-block-name="block-registration" class="hidden">
-                <form>
-                  <input type="text" placeholder="E-mail">
-                  <input type="password" placeholder="Password">
-                  <input type="password" placeholder="Repeat password">
-                  <button type="submit" class="btn">Sign up</button>
-                </form>
               </div>
             </div>
           </div>

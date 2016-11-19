@@ -55,42 +55,12 @@ Zeitschriften auf der ganzen Welt veröffentlicht. Extra für Sie haben wir die 
               <span>Best players</span>
             </div>
             <div class="best-players-body">
-              <div class="item">
-                <span class="number">1</span>
-                <span class="name">harry.kiselev</span>
-              </div>
-              <div class="item">
-                <span class="number">2</span>
-                <span class="name">harry.kiselev</span>
-              </div>
-              <div class="item">
-                <span class="number">3</span>
-                <span class="name">harry.kiselev</span>
-              </div>
-              <div class="item">
-                <span class="number">4</span>
-                <span class="name">harry.kiselev</span>
-              </div>
-              <div class="item">
-                <span class="number">5</span>
-                <span class="name">harry.kiselev</span>
-              </div>
-              <div class="item">
-                <span class="number">6</span>
-                <span class="name">harry.kiselev</span>
-              </div>
-              <div class="item">
-                <span class="number">8</span>
-                <span class="name">harry.kiselev</span>
-              </div>
-              <div class="item">
-                <span class="number">9</span>
-                <span class="name">harry.kiselev</span>
-              </div>
-              <div class="item">
-                <span class="number">10</span>
-                <span class="name">harry.kiselev</span>
-              </div>
+              <% @top_players.each_with_index do |player, index| %>
+                <div class="item">
+                  <span class="number"><%= index+1 %></span>
+                  <span class="name"><%= player.name %></span>
+                </div>
+              <% end %>
               <div class="text aligned center">
                   <a href="/rangliste">All players</a>
               </div>
@@ -115,7 +85,7 @@ Zeitschriften auf der ganzen Welt veröffentlicht. Extra für Sie haben wir die 
                 <button class="btn primary game" id="solve-btn">Solve</button>
                 <button class="btn primary game" id="clear-btn">Clear</button>
                 <button class="btn primary game" id="hint-btn">Hint</button>
-                <button class="btn primary game" data-remodal-target="modal-solution-correct">Check</button>
+                <button class="btn primary game" id="check-btn">Check</button>
               </div>
             </div>
           </div>
@@ -153,83 +123,19 @@ Zeitschriften auf der ganzen Welt veröffentlicht. Extra für Sie haben wir die 
         </thead>
 
         <tbody>
+          <% @top_players.each_with_index do |player, index| %>
           <tr>
-            <td class="text aligned right">1</td>
-            <td class="text medium">harry.kiselev</td>
-            <td class="text aligned right desktop">46575</td>
-            <td class="text aligned right">45889</td>
-            <td class="text aligned right desktop">45888</td>
-            <td class="text aligned right desktop">56434</td>
-            <td class="text aligned right desktop">34344</td>
-            <td class="text medium aligned right">55453453</td>
-            <td class="text aligned right">Nov 15, 2016</td>
+            <td class="text aligned right"><%= index+1 %></td>
+            <td class="text medium"><%= player.name %></td>
+            <td class="text aligned right desktop"><%= player.game_counter.easy %></td>
+            <td class="text aligned right"><%= player.game_counter.medium %></td>
+            <td class="text aligned right desktop"><%= player.game_counter.hard %></td>
+            <td class="text aligned right desktop"><%= player.game_counter.expert %></td>
+            <td class="text aligned right desktop"><%= player.game_counter.insane %></td>
+            <td class="text medium aligned right"><%= player.scores %></td>
+            <td class="text aligned right"><%= player.game_counter.updated_at.strftime("%b %d, %Y") %></td>
           </tr>
-          <tr>
-            <td class="text aligned right">1</td>
-            <td class="text medium">harry.kiselev</td>
-            <td class="text aligned right desktop">46575</td>
-            <td class="text aligned right">45889</td>
-            <td class="text aligned right desktop">45888</td>
-            <td class="text aligned right desktop">56434</td>
-            <td class="text aligned right desktop">34344</td>
-            <td class="text medium aligned right">55453453</td>
-            <td class="text aligned right">Nov 15, 2016</td>
-          </tr>
-          <tr>
-            <td class="text aligned right">1</td>
-            <td class="text medium">harry.kiselev</td>
-            <td class="text aligned right desktop">46575</td>
-            <td class="text aligned right">45889</td>
-            <td class="text aligned right desktop">45888</td>
-            <td class="text aligned right desktop">56434</td>
-            <td class="text aligned right desktop">34344</td>
-            <td class="text medium aligned right">55453453</td>
-            <td class="text aligned right">Nov 15, 2016</td>
-          </tr>
-          <tr>
-            <td class="text aligned right">1</td>
-            <td class="text medium">harry.kiselev</td>
-            <td class="text aligned right desktop">46575</td>
-            <td class="text aligned right">45889</td>
-            <td class="text aligned right desktop">45888</td>
-            <td class="text aligned right desktop">56434</td>
-            <td class="text aligned right desktop">34344</td>
-            <td class="text medium aligned right">55453453</td>
-            <td class="text aligned right">Nov 15, 2016</td>
-          </tr>
-          <tr>
-            <td class="text aligned right">1</td>
-            <td class="text medium">harry.kiselev</td>
-            <td class="text aligned right desktop">46575</td>
-            <td class="text aligned right">45889</td>
-            <td class="text aligned right desktop">45888</td>
-            <td class="text aligned right desktop">56434</td>
-            <td class="text aligned right desktop">34344</td>
-            <td class="text medium aligned right">55453453</td>
-            <td class="text aligned right">Nov 15, 2016</td>
-          </tr>
-          <tr>
-            <td class="text aligned right">1</td>
-            <td class="text medium">harry.kiselev</td>
-            <td class="text aligned right desktop">46575</td>
-            <td class="text aligned right">45889</td>
-            <td class="text aligned right desktop">45888</td>
-            <td class="text aligned right desktop">56434</td>
-            <td class="text aligned right desktop">34344</td>
-            <td class="text medium aligned right">55453453</td>
-            <td class="text aligned right">Nov 15, 2016</td>
-          </tr>
-          <tr>
-            <td class="text aligned right">1</td>
-            <td class="text medium">harry.kiselev</td>
-            <td class="text aligned right desktop">46575</td>
-            <td class="text aligned right">45889</td>
-            <td class="text aligned right desktop">45888</td>
-            <td class="text aligned right desktop">56434</td>
-            <td class="text aligned right desktop">34344</td>
-            <td class="text medium aligned right">55453453</td>
-            <td class="text aligned right">Nov 15, 2016</td>
-          </tr>
+          <% end %>
         </tbody>
       </table>
 

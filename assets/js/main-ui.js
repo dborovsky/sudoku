@@ -7,8 +7,20 @@
         $navItems = $('.nav-items'),
         $overlay = $('.overlay');
 
-    $('[data-remodal-id]').remodal();
+    var r = window.remodals = {};
 
+
+    ///////////////////
+    // Init Remodals //
+    ///////////////////
+    r.remodalWrong = $('[data-remodal-id="modal-solution-wrong"]').remodal();
+    r.remodalCorrect = $('[data-remodal-id="modal-solution-correct"]').remodal();
+    r.remodalSaves = $('[data-remodal-id="modal-saves"]').remodal();
+
+
+    //////////////////////////////////////////////////////////
+    // Close mobile Main menu when clicked on another place //
+    //////////////////////////////////////////////////////////
     $(document).on('click', function (e) {
       console.log(e);
       if ($(e.target).hasClass('overlay')) {
@@ -17,6 +29,8 @@
         $overlay.hide();
       }
     });
+
+
     ///////////////////////////
     // Toggle hamburger menu //
     ///////////////////////////
@@ -31,6 +45,7 @@
         $('.overlay').show()
       }
     };
+
 
     ////////////////////////////////////////
     // Toogle authorization dropdown menu //
@@ -50,6 +65,9 @@
     };
 
 
+    ////////////////////////////////////////
+    // Toogle Best players dropdown menu  //
+    ////////////////////////////////////////
     var toggleBestPlayers = function (e) {
       if ($best.hasClass('opened'))
           $best
@@ -75,6 +93,7 @@
           $signInBtn.addClass('disabled');
         else
           $signInBtn.removeClass('disabled');
+
       if (blockname === 'block-lost-password')
         if (!$signInBtn.hasClass('hidden'))
           $signInBtn.addClass('hidden');
