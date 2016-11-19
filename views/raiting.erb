@@ -1,133 +1,36 @@
-<div class="headline">
-  <div class="container">
-    <div class="row clearfix">
-      <div class="column full">
-        <h1>Sudoku kostenlos online spielen</h1>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="content marked">
 <div class="container">
   <div class="row clearfix">
-    <div class="column four-fifth">
-      <div class="row clearfix">
-        <div class="column full no-padding">
-          <p class="text">Sudoku ist eines der beliebtesten Zahlenrätsel. Das Spiel wird regelmäßig in den Zeitungen und 
-Zeitschriften auf der ganzen Welt veröffentlicht. Extra für Sie haben wir die Online-Version des klassischen Sudoku-Spiels entwickelt. Sudoku-Rätsel lösen ist der beste Weg, sich zu konzentrieren und die Freizeit nützlich zu verbringen.</p>
-        </div>
-      </div>
-      <div class="row clearfix">
-        <div class="column two-fourth no-padding">
-          <div class="row clearfix grid-controls">
-            <div class="controls">
-              <div class="ctrl floated left">
-                <select>
-                  <option value="1">Easy</option>
-                  <option value="2">Medium</option>
-                  <option value="3">Hard</option>
-                  <option value="4">Expert</option>
-                  <option value="5">Insane</option>
-                </select>
-              </div>
-
-              <div class="ctrl floated right">
-                <button class="btn primary game" id="solve-btn">Solve</button>
-                <button class="btn primary game" id="clear-btn">Clear</button>
-                <button class="btn primary game" id="hint-btn">Hint</button>
-                <button class="btn primary game" data-remodal-target="modal-solution-correct">Check</button>
-              </div>
-            </div>
-          </div>
-          <div id="grid-wrapper"></div>
-        </div>
-        <div class="column fourth no-padding desktop">
-          <div class="timer">
-            <i class="icon timer"></i>
-            <span id="timer">00:00:00</span>
-          </div>
-
-          <div class="game-menu">
-            <div class="item">
-              <i class="icon save"></i>
-              <a href="javascript:void(0)">Save game</a>
-            </div>
-            <div class="item">
-              <i class="icon open"></i>
-              <a href="javascript:void(0)" data-remodal-target="modal-saves">Load game</a>
-            </div>
-            <div class="item">
-              <i class="icon print"></i>
-              <a href="javascript:void(0)">Print</a>
-            </div>
-          </div>
-
-          <div class="best-players">
-            <div class="best-players-head">
-              <i class="best-player-icon"></i>
-              <span>Best players</span>
-            </div>
-            <div class="best-players-body">
-              <div class="item">
-                <span class="number">1</span>
-                <span class="name">harry.kiselev</span>
-              </div>
-              <div class="item">
-                <span class="number">2</span>
-                <span class="name">harry.kiselev</span>
-              </div>
-              <div class="item">
-                <span class="number">3</span>
-                <span class="name">harry.kiselev</span>
-              </div>
-              <div class="item">
-                <span class="number">4</span>
-                <span class="name">harry.kiselev</span>
-              </div>
-              <div class="item">
-                <span class="number">5</span>
-                <span class="name">harry.kiselev</span>
-              </div>
-              <div class="item">
-                <span class="number">6</span>
-                <span class="name">harry.kiselev</span>
-              </div>
-              <div class="item">
-                <span class="number">8</span>
-                <span class="name">harry.kiselev</span>
-              </div>
-              <div class="item">
-                <span class="number">9</span>
-                <span class="name">harry.kiselev</span>
-              </div>
-              <div class="item">
-                <span class="number">10</span>
-                <span class="name">harry.kiselev</span>
-              </div>
-              <div class="text aligned center">
-                  <a href="/rangliste">All players</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="column fifth desktop">
-      <a href="#" class="banner vertical">
-        <img src="img/banner-vertical.png" alt="">
+    <div class="column full">
+      <a href="#" class="banner horizontal">
+        <img src="img/banner-horizontal.png" alt="">
       </a>
     </div>
   </div>
 </div>
+
+<div class="headline">
+  <div class="container">
+    <div class="row clearfix">
+      <div class="column full">
+        <h1>Rangliste der Spieler</h1>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="container">
   <div class="row clearfix">
     <div class="column full">
+      <p class="text">Sudoku ist eines der beliebtesten Zahlenrätsel. Das Spiel wird regelmäßig in den Zeitungen und 
+        Zeitschriften auf der ganzen Welt veröffentlicht. Extra für Sie haben wir die Online-Version des 
+        klassischen Sudoku-Spiels entwickelt. Sudoku-Rätsel lösen ist der beste Weg, sich zu konzentrieren 
+        und die Freizeit nützlich zu verbringen.</p>
+      <div>
+        <select>
+          <option value="1">Best players all time</option>
+        </select>
+      </div>
       <br><br>
-      <h2>Rangliste der Spieler</h2>
-
       <table class="table" cellspacing="0">
         <thead>
           <th class="col-id text aligned right">#</th>
@@ -222,9 +125,6 @@ Zeitschriften auf der ganzen Welt veröffentlicht. Extra für Sie haben wir die 
         </tbody>
       </table>
 
-      <div class="text aligned center">
-        <a href="/rangliste">Vollständige Rangliste anzeigen</a>
-      </div>
       <br><br><br>
     </div>
   </div>

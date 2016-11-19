@@ -43,9 +43,14 @@ get '/kontakte' do
   erb :contacts, :layout => :default
 end
 
+# get '/rangliste' do
+#   @top_players = User.all.order('scores desc')
+#   erb :top
+# end
+
 get '/rangliste' do
   @top_players = User.all.order('scores desc')
-  erb :top
+  erb :raiting, :layout => :default
 end
 
 get '/regeln' do

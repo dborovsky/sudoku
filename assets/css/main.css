@@ -15,6 +15,10 @@ body {
   position: relative;
   color: #333333; }
 
+p.text {
+  line-height: 1.6; 
+  margin: 25px 0 25px 0; }
+
 h1, h2 {
   font-weight: 300;
   font-size: 30px;
@@ -66,8 +70,10 @@ h1, h2 {
 
 .controls .ctrl {
   margin-bottom: 30px;
-  margin-top: 30px;
-}
+  margin-top: 30px; }
+
+.grid-controls {
+  width: 531px; }
 
 .headline {
   padding-top: 18px;
@@ -119,10 +125,12 @@ h1, h2 {
   padding-left: 10px;
   padding-right: 10px; }
 
-.no-padding.mobile {
-  padding: 0px; }
-.no-padding {
-  padding: 0px; }
+.no-padding.desktop {
+  padding: 0px!important; }
+
+@media (max-width: 767px) {
+  .no-padding.mobile {
+    padding: 0px!important; } }
 
 @media (min-width: 768px) {
   .column {
@@ -332,7 +340,7 @@ a {
     display: block;
     background: url("../img/logo-white.png") 100% 100% no-repeat;
     background-size: cover;
-    background-position: 0px -10px; }
+    background-position: -8px -10px; }
     @media (max-width: 767px) {
       .header .header-logo {
         width: 190px;
@@ -544,7 +552,7 @@ div.timer {
   margin-top: 34px; }
 
 .game-menu {
-  margin: 30px 0 0 0; }
+  margin: 33px 0 41px 0; }
   .game-menu .item {
     margin-bottom: 5px; }
     .game-menu .item a {
@@ -619,7 +627,7 @@ div.timer {
   .load-save {
     margin-right: 20px;
   }
-  .btn {
+  .saves .btn {
     height: 30px;
     line-height: 0px;
     font-weight: 500;
