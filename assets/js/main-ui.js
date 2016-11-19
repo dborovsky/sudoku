@@ -2,6 +2,7 @@
   $(document).ready(function () {
     var $signInBtn = $('#sign-in-btn'),
         $auth = $('.auth-dropdown'),
+        $best = $('.best-dropdown'),
         $hamburger = $('.hamburger'),
         $navItems = $('.nav-items'),
         $overlay = $('.overlay');
@@ -49,6 +50,18 @@
     };
 
 
+    var toggleBestPlayers = function (e) {
+      if ($best.hasClass('opened'))
+          $best
+            .removeClass('opened')
+            .hide();
+        else
+          $best
+            .addClass('opened')
+            .show();
+    }
+
+
     ////////////////////////////////////////////////
     // Toggle "Lost password" and "Registration"  //
     ////////////////////////////////////////////////
@@ -85,6 +98,7 @@
 
     $('select').niceSelect();
 
+    $('.nav-best').on('click', toggleBestPlayers);
     $('.nav-auth').on('click', toggleAuthMenuItem);
     $('.toggle-link').on('click', toggleLink);
     $hamburger.on('click', toggleHamburger);

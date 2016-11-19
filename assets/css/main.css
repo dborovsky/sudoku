@@ -73,7 +73,7 @@ h1, h2 {
   margin-top: 30px; }
 
 .grid-controls {
-  width: 531px; }
+  padding-right: 0px; }
 
 .headline {
   padding-top: 18px;
@@ -249,6 +249,7 @@ a {
 
 .grid {
     border-collapse: collapse;
+    margin: 0 auto;
 }
 
 .grid td {
@@ -287,6 +288,41 @@ a {
     font-weight: bold;
     outline: none;
     border: none;
+}
+
+@media (min-width: 768px) and (max-width: 920px) {
+  .grid input {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+@media (max-width: 570px) {
+  .grid input {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 500px) {
+  .grid input {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 420px) {
+  .grid input {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media (max-width: 360px) {
+  .grid input {
+    width: 30px;
+    height: 30px;
+  }
 }
 
 .grid input:focus {
@@ -420,7 +456,22 @@ a {
           margin: 0 18px 0 18px;
           background-color: #e4e4e4; }
         .nav .nav-item:after {
-          display: none; } }
+          display: none!important; } }
+
+  .nav .nav-best {
+    display: none;
+    float: right;
+    background-color: #f9d426;
+    background-image: url("../img/icon-best.png");
+    background-repeat: no-repeat;
+    background-position: 11px 13px;
+    height: 53px;
+    width: 53px; }
+    @media (max-width: 767px) {
+      .nav .nav-best {
+        display: block;
+      }
+    }
   .nav .nav-auth {
     display: inline-block;
     color: #2669b5;
@@ -433,7 +484,10 @@ a {
     text-decoration: none;
     padding: 17px 15px 0 50px;
     position: relative; }
-    @media (max-width: 880px) {
+    @media (max-width: 767px) {
+      .nav .nav-auth {
+        width: calc(100% - 53px); } }
+    @media (min-width: 768px) and (max-width: 880px) {
       .nav .nav-auth {
         width: 100%; } }
     .nav .nav-auth .icon-auth {
@@ -443,6 +497,12 @@ a {
       position: absolute;
       left: 19px;
       top: 11px; }
+  .nav .best-dropdown {
+    display: none;
+    cursor: default;
+    top: 53px;
+    position: absolute;
+    right: 0; }
   .nav .auth-dropdown {
     display: none;
     cursor: default;
@@ -558,6 +618,12 @@ div.timer {
     .game-menu .item a {
       padding-left: 5px; }
 
+.best-player-icon {
+    display: inline-block;
+    width: 30px;
+    height: 27px;
+    background: url("../img/icon-best.png"); }
+
 .best-players {
   width: 200px; }
   .best-players-head {
@@ -566,11 +632,8 @@ div.timer {
     text-transform: uppercase;
     font-weight: 700;
     background-color: #f9d426; }
-  .best-player-icon {
-    display: inline-block;
-    width: 30px;
-    height: 27px;
-    background: url("../img/icon-best.png"); }
+  .best-players-head span {
+    line-height: 1.85; }
   .best-players-body {
     background-color: #fff;
     font-weight: 300;

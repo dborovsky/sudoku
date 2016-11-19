@@ -1,3 +1,13 @@
+<div class="container">
+  <div class="row clearfix">
+    <div class="column full">
+      <a href="#" class="banner horizontal">
+        <img src="img/banner-horizontal.png" alt="">
+      </a>
+    </div>
+  </div>
+</div>
+
 <div class="headline">
   <div class="container">
     <div class="row clearfix">
@@ -7,41 +17,18 @@
     </div>
   </div>
 </div>
-<div class="content marked">
+
 <div class="container">
   <div class="row clearfix">
     <div class="column four-fifth">
       <div class="row clearfix">
-        <div class="column full no-padding">
+        <div class="column full no-padding desktop">
           <p class="text">Sudoku ist eines der beliebtesten Zahlenrätsel. Das Spiel wird regelmäßig in den Zeitungen und 
 Zeitschriften auf der ganzen Welt veröffentlicht. Extra für Sie haben wir die Online-Version des klassischen Sudoku-Spiels entwickelt. Sudoku-Rätsel lösen ist der beste Weg, sich zu konzentrieren und die Freizeit nützlich zu verbringen.</p>
         </div>
       </div>
       <div class="row clearfix">
-        <div class="column two-fourth no-padding">
-          <div class="row clearfix grid-controls">
-            <div class="controls">
-              <div class="ctrl floated left">
-                <select>
-                  <option value="1">Easy</option>
-                  <option value="2">Medium</option>
-                  <option value="3">Hard</option>
-                  <option value="4">Expert</option>
-                  <option value="5">Insane</option>
-                </select>
-              </div>
-
-              <div class="ctrl floated right">
-                <button class="btn primary game" id="solve-btn">Solve</button>
-                <button class="btn primary game" id="clear-btn">Clear</button>
-                <button class="btn primary game" id="hint-btn">Hint</button>
-                <button class="btn primary game" data-remodal-target="modal-solution-correct">Check</button>
-              </div>
-            </div>
-          </div>
-          <div id="grid-wrapper"></div>
-        </div>
-        <div class="column fourth no-padding desktop">
+        <div class="column fourth flow-opposite">
           <div class="timer">
             <i class="icon timer"></i>
             <span id="timer">00:00:00</span>
@@ -62,7 +49,7 @@ Zeitschriften auf der ganzen Welt veröffentlicht. Extra für Sie haben wir die 
             </div>
           </div>
 
-          <div class="best-players">
+          <div class="best-players desktop">
             <div class="best-players-head">
               <i class="best-player-icon"></i>
               <span>Best players</span>
@@ -109,6 +96,30 @@ Zeitschriften auf der ganzen Welt veröffentlicht. Extra für Sie haben wir die 
               </div>
             </div>
           </div>
+        </div>
+
+        <div class="column two-fourth no-padding mobile">
+          <div class="row clearfix grid-controls">
+            <div class="controls">
+              <div class="ctrl floated left">
+                <select>
+                  <option value="1">Easy</option>
+                  <option value="2">Medium</option>
+                  <option value="3">Hard</option>
+                  <option value="4">Expert</option>
+                  <option value="5">Insane</option>
+                </select>
+              </div>
+
+              <div class="ctrl floated right">
+                <button class="btn primary game" id="solve-btn">Solve</button>
+                <button class="btn primary game" id="clear-btn">Clear</button>
+                <button class="btn primary game" id="hint-btn">Hint</button>
+                <button class="btn primary game" data-remodal-target="modal-solution-correct">Check</button>
+              </div>
+            </div>
+          </div>
+          <div id="grid-wrapper"></div>
         </div>
       </div>
     </div>
