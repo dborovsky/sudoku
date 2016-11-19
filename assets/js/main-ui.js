@@ -6,6 +6,8 @@
         $navItems = $('.nav-items'),
         $overlay = $('.overlay');
 
+    $('[data-remodal-id]').remodal();
+
     $(document).on('click', function (e) {
       console.log(e);
       if ($(e.target).hasClass('overlay')) {

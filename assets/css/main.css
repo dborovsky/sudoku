@@ -12,6 +12,7 @@ html {
 
 body {
   background-color: #ffffff;
+  position: relative;
   color: #333333; }
 
 h1, h2 {
@@ -40,6 +41,7 @@ h1, h2 {
   position: absolute;
   width: 100%;
   height: auto;
+  z-index: 1;
   display: none;
   min-height: 100%;
   top: 60px; }
@@ -350,7 +352,7 @@ a {
     background: url("../img/icon-hamburger.png") no-repeat;
     top: 22px;
     transition: none;
-    right: 10px; }
+    right: 15px; }
     .header .hamburger.opened {
       top: 18px;
       background: url("../img/icon-close.png") no-repeat; }
@@ -381,7 +383,7 @@ a {
       height: auto;
       background-color: #FFF;
       position: absolute;
-      z-index: 1;
+      z-index: 2;
       left: 0; } }
   .nav .nav-item {
     display: inline-block;
@@ -446,10 +448,14 @@ a {
       .nav .auth-dropdown {
         width: 100%; } }
     .nav .auth-dropdown.opened {
+      z-index: 1;
       display: block; }
     .nav .auth-dropdown .toogle-block {
       width: 180px;
       margin: 10px auto 15px auto; }
+      @media (max-width: 767px) {
+      .nav .auth-dropdown .toogle-block {
+        text-align: center; } }
       .nav .auth-dropdown .toogle-block .toggle-link {
         font-weight: 700;
         display: block;
@@ -496,6 +502,7 @@ a {
       padding: 10px 0 20px 0; }
       @media (max-width: 767px) {
         .nav .auth-dropdown form {
+          text-align: center;
           width: 100%; } }
       .nav .auth-dropdown form .btn {
         width: 180px;
@@ -504,7 +511,7 @@ a {
         padding-right: 0px; }
         @media (max-width: 767px) {
           .nav .auth-dropdown form .btn {
-            margin: 0 auto 0 auto; } }
+            margin: 15px auto 0 auto; } }
         .nav .auth-dropdown form .btn.disabled {
           opacity: .3;
           cursor: default; }
@@ -543,6 +550,30 @@ div.timer {
     .game-menu .item a {
       padding-left: 5px; }
 
+.best-players {
+  width: 200px; }
+  .best-players-head {
+    height: 53px;
+    padding: 13px 13px 0 13px;
+    text-transform: uppercase;
+    font-weight: 700;
+    background-color: #f9d426; }
+  .best-player-icon {
+    display: inline-block;
+    width: 30px;
+    height: 27px;
+    background: url("../img/icon-best.png"); }
+  .best-players-body {
+    background-color: #fff;
+    font-weight: 300;
+    padding: 13px; }
+    .best-players-body .item {
+      display: inline-block;
+      margin-bottom: 10px; }
+      .best-players-body .item .number {
+        padding-right: 10px;
+      }
+
 .icon {
   width: 20px;
   height: 18px;
@@ -555,6 +586,84 @@ div.timer {
     background: url("../img/icon-open.png"); }
   .icon.print {
     background: url("../img/icon-print.png"); }
+
+.saves {
+  table-layout: fixed;
+  border-spacing: 0;
+  border-collapse: collapse;
+  width: 100%;
+  white-space: nowrap;
+  margin: 25px 0 30px 0; }
+  .delete-save {
+    display: inline-block;
+    overflow: visible;
+    width: 10px;
+    height: 10px;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    -webkit-transition: color 0.2s;
+    transition: color 0.2s;
+    text-decoration: none;
+    color: #95979c;
+    border: 0;
+    outline: 0;
+    background: transparent; }
+    .delete-save:before {
+      font-weight: 300;
+      font-size: 20px;
+      line-height: 20px;
+      display: inline-block;
+      content: "\00d7";
+      text-align: center; }
+  .load-save {
+    margin-right: 20px;
+  }
+  .btn {
+    height: 30px;
+    line-height: 0px;
+    font-weight: 500;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-transform: none;
+  }
+  .saves .spacer {
+    height: 10px;
+  }
+  .saves .saves-item {
+    height: 40px;
+    background-color: #f6f6f6; }
+    .saves .saves-item td {
+      padding: 0px 5px;
+      text-align: right; }
+    .saves .saves-item td.saves-item-ctrls {
+      padding-right: 10px; }
+    .saves .saves-item td.saves-item-date {
+      padding-left: 30px;
+      text-align: left; }
+    .saves .saves-item td.empty {
+      text-align: left; }
+    .saves .saves-item td.marked {
+      background: url("../img/icon-mark.png"); }
+    .saves .saves-item td.saves-item-mark {
+      width: 40px;
+      background-color: #e2e2e2;
+    }
+
+.modal-results {
+  display: inline-block;
+  border: 2px solid #dcdcdc;
+  padding: 10px;
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+.modal-social {
+  background-color: #fff2b6;
+  padding: 2px 0 12px 0;
+  margin: 10px 0 20px 0; }
+  .modal-social a {
+    margin-left: 3px;
+    margin-right: 3px; }
 
 .footer {
   height: 82px;
