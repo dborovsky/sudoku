@@ -698,6 +698,7 @@ div.timer {
     line-height: 1.85; }
   .best-players-body {
     background-color: #fff;
+    border-bottom: 2px solid #eee;
     font-weight: 300;
     padding: 13px; }
     .best-players-body .item {
