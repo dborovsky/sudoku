@@ -2,10 +2,25 @@
   $(document).ready(function () {
     var $signInBtn = $('#sign-in-btn'),
         $auth = $('.auth-dropdown'),
+        $best = $('.best-dropdown'),
         $hamburger = $('.hamburger'),
         $navItems = $('.nav-items'),
         $overlay = $('.overlay');
 
+    var r = window.remodals = {};
+
+
+    ///////////////////
+    // Init Remodals //
+    ///////////////////
+    r.remodalWrong = $('[data-remodal-id="modal-solution-wrong"]').remodal();
+    r.remodalCorrect = $('[data-remodal-id="modal-solution-correct"]').remodal();
+    r.remodalSaves = $('[data-remodal-id="modal-saves"]').remodal();
+
+
+    //////////////////////////////////////////////////////////
+    // Close mobile Main menu when clicked on another place //
+    //////////////////////////////////////////////////////////
     $(document).on('click', function (e) {
       console.log(e);
       if ($(e.target).hasClass('overlay')) {
@@ -14,6 +29,8 @@
         $overlay.hide();
       }
     });
+
+
     ///////////////////////////
     // Toggle hamburger menu //
     ///////////////////////////
@@ -28,6 +45,7 @@
         $('.overlay').show()
       }
     };
+
 
     ////////////////////////////////////////
     // Toogle authorization dropdown menu //
@@ -47,6 +65,21 @@
     };
 
 
+    ////////////////////////////////////////
+    // Toogle Best players dropdown menu  //
+    ////////////////////////////////////////
+    var toggleBestPlayers = function (e) {
+      if ($best.hasClass('opened'))
+          $best
+            .removeClass('opened')
+            .hide();
+        else
+          $best
+            .addClass('opened')
+            .show();
+    }
+
+
     ////////////////////////////////////////////////
     // Toggle "Lost password" and "Registration"  //
     ////////////////////////////////////////////////
@@ -60,6 +93,7 @@
           $signInBtn.addClass('disabled');
         else
           $signInBtn.removeClass('disabled');
+
       if (blockname === 'block-lost-password')
         if (!$signInBtn.hasClass('hidden'))
           $signInBtn.addClass('hidden');
@@ -83,6 +117,7 @@
 
     $('select').niceSelect();
 
+    $('.nav-best').on('click', toggleBestPlayers);
     $('.nav-auth').on('click', toggleAuthMenuItem);
     $('.toggle-link').on('click', toggleLink);
     $hamburger.on('click', toggleHamburger);

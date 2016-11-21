@@ -48,6 +48,7 @@ get '/' do
   if params[:stashed_game].present?
     @stashed_game = Stash.find(params[:stashed_game])
   end
+  @hidden = 'hidden'
   erb :index, :layout => :default
 end
 
@@ -55,9 +56,14 @@ get '/kontakte' do
   erb :contacts, :layout => :default
 end
 
+# get '/rangliste' do
+#   @top_players = User.all.order('scores desc')
+#   erb :top
+# end
+
 get '/rangliste' do
   @top_players = User.all.order('scores desc')
-  erb :top
+  erb :raiting, :layout => :default
 end
 
 get '/regeln' do

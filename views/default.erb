@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8" />
+  <title>Sudoku spielen</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <meta name="keywords" content="">
@@ -17,11 +18,14 @@
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/nice-select.css">
+  <link rel="stylesheet" href="css/remodal.css">
+  <link rel="stylesheet" href="css/remodal-default-theme.css">
   <link rel="stylesheet" href="css/main.css">
 
   <!-- Scripts -->
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery.nice-select.js"></script>
+  <script src="js/remodal.js"></script>
   <script src="js/main-ui.js"></script>
 
   <% if @stashed_game.present? %>
@@ -30,7 +34,7 @@
     </script>
   <% end %>
 </head>
-<body class="relative">
+<body>
 
 
   <header class="header">
@@ -66,37 +70,107 @@
           </div>
 
           <div class="right-side">
-            <a href="javascript:void(0)" class="nav-auth">
-              <i class="icon-auth"></i>
-              <span>Authorization</span>
-            </a>
+            <% if current_user.present? %>
+              <a href="javascript:void(0)" class="nav-auth logged">
+                <i class="icon-user"></i>
+                <span><%= current_user.name %></span>
+              </a>
+            <% else %>
+              <a href="javascript:void(0)" class="nav-auth">
+                <i class="icon-auth"></i>
+                <span>Authorization</span>
+              </a>
+            <% end %>
+
+            <a href="javascript:void(0)" class="nav-best mobile"></a>
+
+            <div class="best-players mobile best-dropdown">
+              <div class="best-players-head">
+                <span>Best players</span>
+              </div>
+              <div class="best-players-body">
+                <div class="item">
+                  <span class="number">1</span>
+                  <span class="name">harry.kiselev</span>
+                </div>
+                <div class="item">
+                  <span class="number">2</span>
+                  <span class="name">harry.kiselev</span>
+                </div>
+                <div class="item">
+                  <span class="number">3</span>
+                  <span class="name">harry.kiselev</span>
+                </div>
+                <div class="item">
+                  <span class="number">4</span>
+                  <span class="name">harry.kiselev</span>
+                </div>
+                <div class="item">
+                  <span class="number">5</span>
+                  <span class="name">harry.kiselev</span>
+                </div>
+                <div class="item">
+                  <span class="number">6</span>
+                  <span class="name">harry.kiselev</span>
+                </div>
+                <div class="item">
+                  <span class="number">8</span>
+                  <span class="name">harry.kiselev</span>
+                </div>
+                <div class="item">
+                  <span class="number">9</span>
+                  <span class="name">harry.kiselev</span>
+                </div>
+                <div class="item">
+                  <span class="number">10</span>
+                  <span class="name">harry.kiselev</span>
+                </div>
+                <div class="text aligned center">
+                    <a href="/rangliste">All players</a>
+                </div>
+              </div>
+            </div>
 
             <div class="auth-dropdown">
-              <form>
-                <input type="text" placeholder="E-mail">
-                <input type="password" placeholder="Password">
+              <div class="logged">
+                <% if current_user.present? %>
+                  <form action="/sign_out" method="post">
+                    <span>Score: <%= current_user.scores %></span><br><br>
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button type="submit" class="btn primary">Sign out</button>
+                  </form>
+                <% end %>
+              </div>
+
+              <div class="unlogged <% if current_user.present? %>
+                                   <%= 'hidden' %>
+                                   <% end %>">
+                <form action="/sign_in" method="POST" >
+                  <input type="text" placeholder="E-mail" name="email">
+                  <input type="password" placeholder="Password" name="password">
+
+                  <div class="toogle-block">
+                    <a href="javascript:void(0)" class="toggle-link tr-open" data-block-name="block-lost-password">Lost password?</a>
+                  </div>
+                  <div data-block-name="block-lost-password" class="hidden">
+                      <input type="text" placeholder="E-mail">
+                      <button type="submit" class="btn">Send password</button>
+                  </div>
+
+                  <button type="submit" class="btn" id="sign-in-btn">Sign in</button>
+                </form>
 
                 <div class="toogle-block">
-                  <a href="javascript:void(0)" class="toggle-link tr-open" data-block-name="block-lost-password">Lost password?</a>
+                  <a href="javascript:void(0)" class="toggle-link tr-open" data-block-name="block-registration">Registration</a>
                 </div>
-                <div data-block-name="block-lost-password" class="hidden">
-                    <input type="text" placeholder="E-mail">
-                    <button type="submit" class="btn">Send password</button>
+                <div data-block-name="block-registration" class="hidden">
+                  <form action="/sign_up" method="POST">
+                    <input type="text" placeholder="E-mail" name="email">
+                    <input type="password" placeholder="Password" name="password">
+                    <input type="password" placeholder="Repeat password">
+                    <button type="submit" class="btn">Sign up</button>
+                  </form>
                 </div>
-
-                <button type="submit" class="btn" id="sign-in-btn">Sign in</button>
-              </form>
-
-              <div class="toogle-block">
-                <a href="javascript:void(0)" class="toggle-link tr-open" data-block-name="block-registration">Registration</a>
-              </div>
-              <div data-block-name="block-registration" class="hidden">
-                <form>
-                  <input type="text" placeholder="E-mail">
-                  <input type="password" placeholder="Password">
-                  <input type="password" placeholder="Repeat password">
-                  <button type="submit" class="btn">Sign up</button>
-                </form>
               </div>
             </div>
           </div>
@@ -106,9 +180,29 @@
     </div>
   </nav>
 
+
   <main class="main">
     <%= yield %>
   </main>
+
+
+  <nav class="nav bottom">
+    <div class="container">
+      <div class="row clearfix">
+        <div class="column full clearfix no-padding mobile">
+
+          <div class="left-side desktop">
+            <a href="/" class="nav-item">Sudoku Spielen</a>
+            <a href="#" class="nav-item">Vorschriften</a>
+            <a href="/regeln" class="nav-item">Regeln</a>
+            <a href="#" class="nav-item">Strategie</a>
+            <a href="/geschichte" class="nav-item">Geschichte Sudoku</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </nav>
 
 
   <footer class="footer">
@@ -127,6 +221,98 @@
       </div>
     </div>
   </footer>
+
+
+  <div class="remodal" data-remodal-id="modal-solution-wrong" data-remodal-options="hashTracking: false">
+    <button data-remodal-action="close" class="remodal-close"></button>
+    <h1>Your solution is wrong!</h1>
+    <div class="text aligned center">
+      <img src="img/icon-wrong.png" alt=":(">
+    </div>
+    <br>
+    <div class="text aligned center">
+      <a href="javascript:void(0)" data-remodal-action="close">Close window</a>
+    </div>
+  </div>
+
+  <div class="remodal" data-remodal-id="modal-solution-correct" data-remodal-options="hashTracking: false">
+    <button data-remodal-action="close" class="remodal-close"></button>
+    <h1>Congratulations!</h1>
+    <p>Your solution is correct. But your scores is zero, sorry.</p>
+    <div class="text aligned center">
+      <img src="img/icon-correct.png" alt=":)">
+    </div>
+    <div class="text aligned center">
+      <div class="modal-results">Time: 02:25:34</div>
+      <div class="modal-results">Score: 453 020</div>
+    </div>
+    <div class="text aligned center modal-social">
+      <p>Your solution is correct</p>
+      <div>
+        <a href="#"><img src="img/icon-fb.png" alt="Facebook"></a>
+        <a href="#"><img src="img/icon-gp.png" alt="Google+"></a>
+        <a href="#"><img src="img/icon-tw.png" alt="Twitter"></a>
+      </div>
+    </div>
+    <div class="text aligned center">
+      <a href="javascript:void(0)" data-remodal-action="close">Close window</a>
+    </div>
+  </div>
+
+  <div class="remodal" data-remodal-id="modal-saves" data-remodal-options="hashTracking: false">
+    <button data-remodal-action="close" class="remodal-close"></button>
+    <h1>Saves</h1>
+    <table class="saves">
+      <tr class="saves-item">
+        <td class="saves-item-mark marked"></td>
+        <td class="saves-item-date">20.11.2016</td>
+        <td class="saves-item-score">Scores: 3456</td>
+        <td class="saves-item-time">Time: 01:23:33</td>
+        <td class="saves-item-ctrls">
+          <a href="#" class="load-save">Load game</a>
+          <a href="#" class="delete-save"></a>
+        </td>
+      </tr>
+      <tr class="spacer"></tr>
+      <tr class="saves-item">
+        <td class="saves-item-mark marked"></td>
+        <td class="saves-item-date">20.11.2016</td>
+        <td class="saves-item-score">Scores: 3456</td>
+        <td class="saves-item-time">Time: 01:23:33</td>
+        <td class="saves-item-ctrls">
+          <a href="#" class="load-save">Load game</a>
+          <a href="#" class="delete-save"></a>
+        </td>
+      </tr>
+      <tr class="spacer"></tr>
+      <tr class="saves-item">
+        <td class="saves-item-mark"></td>
+        <td class="saves-item-date empty">Empty</td>
+        <td class="saves-item-score"></td>
+        <td class="saves-item-time"></td>
+        <td class="saves-item-ctrls"><button class="btn primary" id="stash-btn">Save</button></td>
+      </tr>
+      <tr class="spacer"></tr>
+      <tr class="saves-item">
+        <td class="saves-item-mark"></td>
+        <td class="saves-item-date empty">Empty</td>
+        <td class="saves-item-score"></td>
+        <td class="saves-item-time"></td>
+        <td class="saves-item-ctrls"><button class="btn primary" id="stash-btn">Save</button></td>
+      </tr>
+      <tr class="spacer"></tr>
+      <tr class="saves-item">
+        <td class="saves-item-mark"></td>
+        <td class="saves-item-date empty">Empty</td>
+        <td class="saves-item-score"></td>
+        <td class="saves-item-time"></td>
+        <td class="saves-item-ctrls"><button class="btn primary" id="stash-btn">Save</button></td>
+      </tr>
+    </table>
+    <div class="text aligned center">
+      <a href="javascript:void(0)" data-remodal-action="close">Close window</a>
+    </div>
+  </div>
 
   <div class="overlay"></div>
 
