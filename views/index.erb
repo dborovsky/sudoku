@@ -10,6 +10,7 @@
   </div>
 </div>
 
+<div class="content marked">
 <div class="container">
   <div class="row clearfix">
     <div class="column four-fifth">
@@ -20,12 +21,36 @@ Zeitschriften auf der ganzen Welt veröffentlicht. Extra für Sie haben wir die 
         </div>
       </div>
       <div class="row clearfix">
-        <div class="column fourth flow-opposite">
-          <div class="timer">
-            <i class="icon timer"></i>
-            <span id="timer">00:00:00</span>
-          </div>
+        <div class="column two-fourth no-padding mobile">
+          <div class="row clearfix grid-controls relative">
+            <div class="controls">
+              <div class="ctrl floated left">
+                <select class="generate">
+                  <option value="easy">Easy</option>
+                  <option value="medium">Medium</option>
+                  <option value="hard">Hard</option>
+                  <option value="expert">Expert</option>
+                  <option value="insane">Insane</option>
+                </select>
+                <div class="timer">
+                  <i class="icon timer"></i>
+                  <span id="timer">00:00:00</span>
+                </div>
+              </div>
 
+              <div class="ctrl floated right">
+                <button class="btn primary game" id="solve-btn">Solve</button>
+                <button class="btn primary game" id="clear-btn">Clear</button>
+                <button class="btn primary game" id="hint-btn">Hint</button>
+                <button class="btn primary game" id="check-btn">Check</button>
+              </div>
+
+            </div>
+          </div>
+          <div id="grid-wrapper"></div>
+        </div>
+
+        <div class="column fourth flow-opposite">
           <div class="game-menu">
             <div class="item">
               <i class="icon save"></i>
@@ -60,29 +85,6 @@ Zeitschriften auf der ganzen Welt veröffentlicht. Extra für Sie haben wir die 
           </div>
         </div>
 
-        <div class="column two-fourth no-padding mobile">
-          <div class="row clearfix grid-controls">
-            <div class="controls">
-              <div class="ctrl floated left">
-                <select class="generate">
-                  <option value="easy">Easy</option>
-                  <option value="medium">Medium</option>
-                  <option value="hard">Hard</option>
-                  <option value="expert">Expert</option>
-                  <option value="insane">Insane</option>
-                </select>
-              </div>
-
-              <div class="ctrl floated right">
-                <button class="btn primary game" id="solve-btn">Solve</button>
-                <button class="btn primary game" id="clear-btn">Clear</button>
-                <button class="btn primary game" id="hint-btn">Hint</button>
-                <button class="btn primary game" id="check-btn">Check</button>
-              </div>
-            </div>
-          </div>
-          <div id="grid-wrapper"></div>
-        </div>
       </div>
     </div>
 

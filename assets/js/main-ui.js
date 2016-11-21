@@ -5,9 +5,9 @@
         $best = $('.best-dropdown'),
         $hamburger = $('.hamburger'),
         $navItems = $('.nav-items'),
-        $overlay = $('.overlay');
+        $overlay = $('.overlay'),
 
-    var r = window.remodals = {};
+        r = window.remodals = {};
 
 
     ///////////////////
@@ -25,16 +25,24 @@
     //////////////////////////////////////////////////////////
     $(document).on('click', function (e) {
       console.log(e);
+
       if ($(e.target).hasClass('overlay')) {
         $hamburger.removeClass('opened');
         $navItems.hide();
         $overlay.hide();
       }
-      if (!$(e.target).hasClass('nav-best')) {
-        $best
-          .removeClass('opened')
-          .hide();
-      }
+
+      // if (!$(e.arget).hasClass('nav-auth') && !$(e.arget).hasClass('auth-dropdown'))
+      //   if ($auth.hasClass('opened'))
+      //     $auth
+      //       .removeClass('opened')
+      //       .hide();
+
+      if (!$(e.target).hasClass('nav-best'))
+        if ($best.hasClass('opened'))
+          $best
+            .removeClass('opened')
+            .hide();
     });
 
 
