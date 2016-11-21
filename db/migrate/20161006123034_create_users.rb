@@ -1,6 +1,4 @@
 require 'active_record'
-require 'circle'
-
 
 class CreateUsers < ActiveRecord::Migration
   def change
