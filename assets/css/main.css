@@ -105,6 +105,14 @@ h1, h2 {
     width: 728px;
     height: 90px;
     margin: 20px auto; }
+    @media (max-width: 767px) {
+      .banner.horizontal {
+        margin: 0;
+        height: auto;
+        width: auto; }
+        .banner.horizontal img {
+          display: block;
+          max-width: 100%; } }
   .banner.vertical {
     width: 160px;
     height: 600px;
@@ -263,6 +271,36 @@ a {
     width: 15%; }
   .table .col-last {
     width: 15%; }
+
+
+@-webkit-keyframes pulse {
+    0%   { opacity: 0.0; }
+    50%  { opacity: 1.0; }
+    100% { opacity: 0.0; }
+}
+
+@keyframes pulse {
+    0%   { opacity: 0.0; }
+    50%  { opacity: 1.0; }
+    100% { opacity: 0.0; }
+}
+
+@-webkit-keyframes background-pulse {
+    0%   { background: #fff; }
+    50% { background: rgba(255,0,0,0.4); }
+    100% { background: #fff; }
+}
+
+@keyframes background-pulse {
+    0%   { background: #fff; }
+    50% { background: rgba(255,0,0,0.4); }
+    100% { background: #fff; }
+}
+
+.field-with-error {
+    -webkit-animation: background-pulse 1s infinite;
+            animation: background-pulse 1s infinite;
+}
 
 .grid {
     border-collapse: collapse;

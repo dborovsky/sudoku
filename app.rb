@@ -6,19 +6,24 @@ require "./models/user"
 require "./models/game_counter"
 require "./models/stash"
 require "json"
+require "pony"
+
 
 enable :static
 enable :sessions
 
+
 set :public_folder, File.dirname(__FILE__) + '/assets'
 set :database, { adapter: "sqlite3", database: "sudoku_database.sqlite3", pool: 10, timeout: 5000 }
 set :static_cache_control, [:public, {:no_store => 1}]
+
 
 LEVELS_TABLE = {
   '35': 'easy', '40': 'medium',
   '45': 'hard', '50': 'expert',
   '55': 'insane'
 }
+
 
 helpers do
   def current_user
@@ -30,6 +35,7 @@ helpers do
   end
 end
 
+
 get '/' do
   @top_players = User.all.order('scores desc')
   @stashed_games = current_user ? current_user.stashes : []
@@ -40,35 +46,37 @@ get '/' do
   erb :index, :layout => :default
 end
 
+
 get '/kontakte' do
   erb :contacts, :layout => :default
 end
 
-# get '/rangliste' do
-#   @top_players = User.all.order('scores desc')
-#   erb :top
-# end
 
 get '/rangliste' do
   @top_players = User.all.order('scores desc')
   erb :raiting, :layout => :default
 end
 
+
 get '/regeln' do
   erb :rules, :layout => :default
 end
+
 
 get '/losungstechniken' do
   erb :howto, :layout => :default
 end
 
+
 get '/geschichte' do
   erb :history, :layout => :default
 end
 
+
 get '/datenschutzerklarung' do
   erb :policy, :layout => :default
 end
+
 
 get '/indexold' do
   @top_players = User.all.order('scores desc')
@@ -79,6 +87,18 @@ get '/indexold' do
   erb :indexold
 end
 
+
+post '/send' do
+  Pony.mail({
+    :to => 'k159msc3a4@cartelera.org', # should set to: xtrance1991@gmail.com
+    :from => params[:email],
+    :subject => params[:username],
+    :body => params[:message]
+  })
+
+  content_type :json
+  { :email => params[:email] }.to_json
+end
 
 
 post '/sign_up' do
@@ -96,6 +116,7 @@ post '/sign_up' do
   # редиректим на главную
   redirect to('/')
 end
+
 
 post '/sign_in' do
   # проверяем зарегистрирован ли пользователь
@@ -123,6 +144,7 @@ delete '/sign_out' do
   redirect to('/')
 end
 
+
 post '/game/completed' do
   if current_user
     # обновляем очки
@@ -139,6 +161,7 @@ post '/game/completed' do
     :ok
   end
 end
+
 
 post '/game/stash' do
   if current_user
