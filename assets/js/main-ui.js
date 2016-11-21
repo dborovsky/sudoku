@@ -16,6 +16,7 @@
     r.remodalWrong = $('[data-remodal-id="modal-solution-wrong"]').remodal();
     r.remodalCorrect = $('[data-remodal-id="modal-solution-correct"]').remodal();
     r.remodalSaves = $('[data-remodal-id="modal-saves"]').remodal();
+    r.remodalSend = $('[data-remodal-id="modal-send"]').remodal();
 
 
     //////////////////////////////////////////////////////////
@@ -28,6 +29,22 @@
         $navItems.hide();
         $overlay.hide();
       }
+    });
+
+    $('#c-form-send').on('click', function (e) {
+      var cEmail = $('#c-form-email').val(),
+          cUsername = $('#c-form-name').val(),
+          cMessage = $('#c-form-message').val();
+
+      if (cEmail && cUsername && cMessage)
+        $.post('/send', {
+          email: cEmail,
+          username: cUsername,
+          message: cMessage
+        }, function(data, textStatus, xhr) {
+          if (textStatus == 'success')
+            remodals.remodalSend.open();
+        });
     });
 
 

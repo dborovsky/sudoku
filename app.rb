@@ -97,7 +97,14 @@ post '/send' do
   })
 
   content_type :json
-  { :email => params[:email] }.to_json
+  { 
+    :status =>'OK',
+    :data => {
+      :email => params[:email],
+      :name => params[:username],
+      :message => params[:message]
+    }
+  }.to_json
 end
 
 

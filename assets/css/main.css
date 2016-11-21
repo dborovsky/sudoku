@@ -105,9 +105,9 @@ h1, h2 {
     width: 728px;
     height: 90px;
     margin: 20px auto; }
-    @media (max-width: 767px) {
+    @media (max-width: 729px) {
       .banner.horizontal {
-        margin: 0;
+        margin: 0 auto;
         height: auto;
         width: auto; }
         .banner.horizontal img {
