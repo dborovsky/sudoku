@@ -8,6 +8,7 @@ gem "sinatra-flash"
 gem "pg"
 gem "bcrypt"
 gem "pry"
+gem "pony"
 
 group :development do
   gem "shotgun"

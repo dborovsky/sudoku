@@ -5,9 +5,9 @@
         $best = $('.best-dropdown'),
         $hamburger = $('.hamburger'),
         $navItems = $('.nav-items'),
-        $overlay = $('.overlay');
+        $overlay = $('.overlay'),
 
-    var r = window.remodals = {};
+        r = window.remodals = {};
 
 
     ///////////////////
@@ -16,6 +16,8 @@
     r.remodalWrong = $('[data-remodal-id="modal-solution-wrong"]').remodal();
     r.remodalCorrect = $('[data-remodal-id="modal-solution-correct"]').remodal();
     r.remodalSaves = $('[data-remodal-id="modal-saves"]').remodal();
+    r.remodalSend = $('[data-remodal-id="modal-send"]').remodal();
+    r.remodalValidate = $('[data-remodal-id="modal-validate"]').remodal();
 
 
     //////////////////////////////////////////////////////////
@@ -23,11 +25,46 @@
     //////////////////////////////////////////////////////////
     $(document).on('click', function (e) {
       console.log(e);
+
       if ($(e.target).hasClass('overlay')) {
         $hamburger.removeClass('opened');
         $navItems.hide();
         $overlay.hide();
       }
+
+      // if (!$(e.arget).hasClass('nav-auth') && !$(e.arget).hasClass('auth-dropdown'))
+      //   if ($auth.hasClass('opened'))
+      //     $auth
+      //       .removeClass('opened')
+      //       .hide();
+
+      if (!$(e.target).hasClass('nav-best'))
+        if ($best.hasClass('opened'))
+          $best
+            .removeClass('opened')
+            .hide();
+    });
+
+
+    ////////////////////////
+    // Feedback form send //
+    ////////////////////////
+    $('#c-form-send').on('click', function (e) {
+      var cEmail = $('#c-form-email').val(),
+          cUsername = $('#c-form-name').val(),
+          cMessage = $('#c-form-message').val();
+
+      if (cEmail && cUsername && cMessage)
+        $.post('/send', {
+          email: cEmail,
+          username: cUsername,
+          message: cMessage
+        }, function(data, textStatus, xhr) {
+          if (textStatus == 'success')
+            remodals.remodalSend.open();
+        });
+      else
+        remodals.remodalValidate.open();
     });
 
 

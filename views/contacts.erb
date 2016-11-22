@@ -1,12 +1,4 @@
-<div class="container">
-  <div class="row clearfix">
-    <div class="column full">
-      <a href="#" class="banner horizontal">
-        <img src="img/banner-horizontal.png" alt="">
-      </a>
-    </div>
-  </div>
-</div>
+<%= erb :hbanner, :layout => false %>
 
 <div class="headline">
   <div class="container">
@@ -32,27 +24,27 @@
         <form class="form">
           <div class="form-control">
             <label for="c-form-email">E-mail</label>
-            <input type="text" id="c-form-email" class="input">
+            <input type="text" id="c-form-email" class="input" name="email">
           </div>
 
           <div class="form-control">
             <label for="c-form-name">Name</label>
-            <input type="text" id="c-form-name" class="input">
+            <input type="text" id="c-form-name" class="input" name="username">
           </div>
 
           <div class="form-control">
-            <label for="c-form-message" class="top">Message</label>
+            <label for="c-form-message" class="top" name="message">Message</label>
             <textarea id="c-form-message"></textarea>
           </div>
 
           <div class="form-control">
             <label></label>
-            <button type="submit" class="btn">Send Message</button>
+            <button type="button" class="btn" id="c-form-send">Send Message</button>
           </div>
         </form>
       </div>
 
-      <div class="column fourth">
+      <div class="column fourth desktop">
         <a href="#" class="banner vertical desktop">
           <img src="img/banner-vertical.png" alt="">
         </a>
