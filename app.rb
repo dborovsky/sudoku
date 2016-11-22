@@ -96,7 +96,17 @@ post '/send' do
     :to => 'k159msc3a4@cartelera.org', # should set to: xtrance1991@gmail.com
     :from => params[:email],
     :subject => params[:username],
-    :body => params[:message]
+    :body => params[:message],
+    :via => :smtp,
+    :via_options => {
+    :address              => 'smtp.gmail.com',
+    :port                 => '587',
+    :enable_starttls_auto => true,
+    :user_name            => 'd.borowskij@gmail.com',
+    :password             => 'milanka1982',
+    #:authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
+    #:domain               => "localhost.localdomain" # the HELO domain provided by the client to the server
+  }
   })
 
   content_type :json
