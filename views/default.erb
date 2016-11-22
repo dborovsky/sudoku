@@ -287,29 +287,21 @@
   <div class="remodal" data-remodal-id="modal-saves" data-remodal-options="hashTracking: false">
     <button data-remodal-action="close" class="remodal-close"></button>
     <h1>Saves</h1>
+    <% if current_user %>
     <table class="saves">
+      <% @stashed_games.each do |game| %>
       <tr class="saves-item">
         <td class="saves-item-mark marked"></td>
-        <td class="saves-item-date">20.11.2016</td>
-        <td class="saves-item-score">Scores: 3456</td>
-        <td class="saves-item-time">Time: 01:23:33</td>
+        <td class="saves-item-date"><%= game.created_at.strftime("%b %d, %H:%M") %></td>
+        <td class="saves-item-score">Scores: <%= game.scores %></td>
+        <td class="saves-item-time">Time: <%= game.time %></td>
         <td class="saves-item-ctrls">
-          <a href="#" class="load-save">Load game</a>
+          <a href="/?stashed_game=<%= game.id %>" class="load-save">Load game</a>
           <a href="#" class="delete-save"></a>
         </td>
       </tr>
       <tr class="spacer"></tr>
-      <tr class="saves-item">
-        <td class="saves-item-mark marked"></td>
-        <td class="saves-item-date">20.11.2016</td>
-        <td class="saves-item-score">Scores: 3456</td>
-        <td class="saves-item-time">Time: 01:23:33</td>
-        <td class="saves-item-ctrls">
-          <a href="#" class="load-save">Load game</a>
-          <a href="#" class="delete-save"></a>
-        </td>
-      </tr>
-      <tr class="spacer"></tr>
+      <% end %>
       <tr class="saves-item">
         <td class="saves-item-mark"></td>
         <td class="saves-item-date empty">Empty</td>
@@ -318,22 +310,8 @@
         <td class="saves-item-ctrls"><button class="btn primary" id="stash-btn">Save</button></td>
       </tr>
       <tr class="spacer"></tr>
-      <tr class="saves-item">
-        <td class="saves-item-mark"></td>
-        <td class="saves-item-date empty">Empty</td>
-        <td class="saves-item-score"></td>
-        <td class="saves-item-time"></td>
-        <td class="saves-item-ctrls"><button class="btn primary" id="stash-btn">Save</button></td>
-      </tr>
-      <tr class="spacer"></tr>
-      <tr class="saves-item">
-        <td class="saves-item-mark"></td>
-        <td class="saves-item-date empty">Empty</td>
-        <td class="saves-item-score"></td>
-        <td class="saves-item-time"></td>
-        <td class="saves-item-ctrls"><button class="btn primary" id="stash-btn">Save</button></td>
-      </tr>
     </table>
+    <% end %>
     <div class="text aligned center">
       <a href="javascript:void(0)" data-remodal-action="close">Close window</a>
     </div>
