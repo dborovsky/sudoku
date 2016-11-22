@@ -568,6 +568,7 @@ a {
     display: none;
     cursor: default;
     top: 53px;
+    z-index: 3;
     position: absolute;
     right: 0; }
   .nav .auth-dropdown {
@@ -795,7 +796,7 @@ div.timer {
     .saves .saves-item td.saves-item-ctrls {
       padding-right: 10px; }
     .saves .saves-item td.saves-item-date {
-      padding-left: 30px;
+      padding-left: 20px;
       text-align: left; }
     .saves .saves-item td.empty {
       text-align: left; }
