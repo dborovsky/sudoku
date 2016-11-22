@@ -178,7 +178,7 @@ post '/game/stash' do
     params[:right_solution] = params[:right_solution].values.map { |array| array.map(&:to_i) }
     stash = user.stashes.create(params)
     content_type :json
-    { id: stash.id, created_at: stash.created_at.strftime("%b %d, %H:%M") }.to_json
+    { id: stash.id, created_at: stash.created_at.strftime("%b %d, %H:%M"), scores: stash.scores, time: stash.time }.to_json
   else
     halt 401
   end
