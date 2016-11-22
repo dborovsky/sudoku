@@ -290,11 +290,11 @@
     <% if current_user %>
     <table class="saves">
       <% @stashed_games.each do |game| %>
-      <tr class="saves-item">
+      <tr class="saves-item stassh">
         <td class="saves-item-mark marked"></td>
         <td class="saves-item-date"><%= game.created_at.strftime("%b %d, %H:%M") %></td>
-        <td class="saves-item-score">Scores: <%= game.scores %></td>
-        <td class="saves-item-time">Time: <%= game.time %></td>
+        <td class="saves-item-score desktop">Scores: <%= game.scores %></td>
+        <td class="saves-item-time desktop">Time: <%= game.time %></td>
         <td class="saves-item-ctrls">
           <a href="/?stashed_game=<%= game.id %>" class="load-save">Load game</a>
           <a href="#" class="delete-save"></a>
@@ -305,11 +305,10 @@
       <tr class="saves-item">
         <td class="saves-item-mark"></td>
         <td class="saves-item-date empty">Empty</td>
-        <td class="saves-item-score"></td>
-        <td class="saves-item-time"></td>
+        <td class="saves-item-score desktop"></td>
+        <td class="saves-item-time desktop"></td>
         <td class="saves-item-ctrls"><button class="btn primary" id="stash-btn">Save</button></td>
       </tr>
-      <tr class="spacer"></tr>
     </table>
     <% end %>
     <div class="text aligned center">
