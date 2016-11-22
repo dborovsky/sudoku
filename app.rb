@@ -18,7 +18,7 @@ set :database, { adapter: "postgresql", database: "sudoku_database", pool: 5, ti
 set :static_cache_control, [:public, {:no_store => 1}]
 
 
-#db = ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'postgres://localhost/sudoku_database')
+db = ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'postgres://localhost/sudoku_database')
 
 
 LEVELS_TABLE = {
