@@ -104,8 +104,8 @@ post '/send' do
     :enable_starttls_auto => true,
     :user_name            => 'd.borowskij@gmail.com',
     :password             => 'milanka1982',
-    #:authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
-    #:domain               => "localhost.localdomain" # the HELO domain provided by the client to the server
+    :authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
+    :domain               => "sudoku11.herokuapp.com" # the HELO domain provided by the client to the server
   }
   })
 
