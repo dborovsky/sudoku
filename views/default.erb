@@ -32,6 +32,12 @@
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script src="js/remodal.js"></script>
   <script src="js/main-ui.js"></script>
+
+  <% if @stashed_game.present? %>
+    <script>
+      var stashedGame = <%= @stashed_game.to_json %>
+    </script>
+  <% end %>
 </head>
 <body>
 
@@ -308,19 +314,19 @@
     <% if current_user %>
     <table class="saves">
       <% if @stashed_games %>
-        <% @stashed_games.each do |game| %>
-        <tr class="saves-item stassh">
-          <td class="saves-item-mark marked"></td>
-          <td class="saves-item-date"><%= game.created_at.strftime("%b %d, %H:%M") %></td>
-          <td class="saves-item-score desktop">Scores: <%= game.scores %></td>
-          <td class="saves-item-time desktop">Time: <span class="t_time"><%= game.time %></span></td>
-          <td class="saves-item-ctrls">
-            <a href="/?stashed_game=<%= game.id %>" class="load-save">Load game</a>
-            <a href="#" class="delete-save" data-stash-id="<%= game.id %>"></a>
-          </td>
-        </tr>
-        <tr class="spacer"></tr>
-        <% end %>
+      <% @stashed_games.each do |game| %>
+      <tr class="saves-item stassh">
+        <td class="saves-item-mark marked"></td>
+        <td class="saves-item-date"><%= game.created_at.strftime("%b %d, %H:%M") %></td>
+        <td class="saves-item-score desktop">Scores: <%= game.scores %></td>
+        <td class="saves-item-time desktop">Time: <span class="t_time"><%= game.time %></span></td>
+        <td class="saves-item-ctrls">
+          <a href="/?stashed_game=<%= game.id %>" class="load-save">Load game</a>
+          <a href="#" class="delete-save" data-stash-id="<%= game.id %>"></a>
+        </td>
+      </tr>
+      <tr class="spacer"></tr>
+      <% end %>
       <% end %>
       <tr class="saves-item">
         <td class="saves-item-mark"></td>

@@ -159,6 +159,7 @@ function ($, Grid, System, Validator, Solver, Levels, Timer, ScoresCounter) { 'u
         $('#clear-btn').on('click', function () {
             View.clearTable();
             Timer.start();
+            $('input.field-with-error').removeClass('field-with-error');
         });
 
         $('#hint-btn').on('click', function () {
