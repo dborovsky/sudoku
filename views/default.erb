@@ -151,8 +151,8 @@
                                    <%= 'hidden' %>
                                    <% end %>">
                 <form action="/sign_in" method="POST" >
-                  <input type="text" placeholder="E-mail" name="email">
-                  <input type="password" placeholder="Password" name="password">
+                  <input type="text" placeholder="E-mail" name="email" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                  <input type="password" placeholder="Password" name="password" required="">
 
                   <div class="g-recaptcha" data-sitekey="6LccmwwUAAAAAPelfC8JSIeMMLOhe4G9B7gLJmDp"></div>
 
@@ -172,12 +172,27 @@
                 </div>
                 <div data-block-name="block-registration" class="hidden">
                   <form action="/sign_up" method="POST">
-                    <input type="text" placeholder="E-mail" name="email">
-                    <input type="text" placeholder="Username" name="name">
-                    <input type="password" placeholder="Password" name="password">
-                    <input type="password" placeholder="Repeat password">
+                    <input type="text" placeholder="E-mail" name="email" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                    <input type="text" placeholder="Username" name="name" required="">
+                    <input type="password" placeholder="Password" id="c-password" name="password" required="">
+                    <input type="password" placeholder="Confirm password" id="c-confirm_password" required="">
                     <button type="submit" class="btn">Sign up</button>
                   </form>
+                  <script>
+                    var password = document.getElementById("c-password")
+                      , confirm_password = document.getElementById("c-confirm_password");
+
+                    function validatePassword(){
+                      if(password.value != confirm_password.value) {
+                        confirm_password.setCustomValidity("Passwords Don't Match");
+                      } else {
+                        confirm_password.setCustomValidity('');
+                      }
+                    }
+
+                    password.onchange = validatePassword;
+                    confirm_password.onkeyup = validatePassword;
+                  </script>
                 </div>
               </div>
             </div>
