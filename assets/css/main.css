@@ -881,7 +881,7 @@ div.timer {
   padding: 0!important;
   background-color: transparent!important;
 }
-.jssocials-share-link img {
+.modal-social .jssocials-share-link img {
   display: block;
   border-radius: 100%;
 }
