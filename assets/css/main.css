@@ -138,7 +138,11 @@ h1, h2 {
     margin: 0 auto; }
     @media (max-width: 940px) {
       .banner.vertical {
-        display: none;
+        width: 100px;
+      }
+      .banner.vertical img {
+        display: block;
+        width: 100px;
       }
     }
 
@@ -376,10 +380,26 @@ a {
     border: none;
 }
 
+
+@media (max-width: 767px) {
+  .grid-controls {
+    width: 531px;
+    margin: 0 auto;
+  }
+  .btn.game {
+      padding-left: 47px;
+      padding-right: 47px;
+  }
+}
+
 @media (min-width: 768px) and (max-width: 920px) {
   .grid input {
     width: 45px;
     height: 45px;
+  }
+  .grid-controls {
+    width: 423px;
+    margin: 0 auto;
   }
 }
 
@@ -388,12 +408,28 @@ a {
     width: 50px;
     height: 50px;
   }
+  .btn.game {
+    padding-left: 39px;
+    padding-right: 39px;
+  }
+  .grid-controls {
+    width: 468px;
+    margin: 0 auto;
+  }
 }
 
 @media (max-width: 500px) {
   .grid input {
     width: 40px;
     height: 40px;
+  }
+  .btn.game {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+  .grid-controls {
+    width: 378px;
+    margin: 0 auto;
   }
 }
 
@@ -402,12 +438,28 @@ a {
     width: 35px;
     height: 35px;
   }
+  .btn.game {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+  .grid-controls {
+    width: 333px;
+    margin: 0 auto;
+  }
 }
 
 @media (max-width: 360px) {
   .grid input {
     width: 30px;
     height: 30px;
+  }
+  .btn.game {
+    padding-left: 16px;
+    padding-right: 17px;
+  }
+  .grid-controls {
+    width: 288px;
+    margin: 0 auto;
   }
 }
 
