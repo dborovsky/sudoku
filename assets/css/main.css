@@ -32,12 +32,14 @@ h1, h2 {
   .header,
   .footer,
   .banner,
-  p,
+  .rangliste,
   .grid-controls,
   .flow-opposite,
   .image,
   img,
-  h1, h2 {
+  p,
+  h1,
+  h2 {
     display: none!important;
   }
   body {
@@ -45,12 +47,22 @@ h1, h2 {
   }
 }
 
+.g-recaptcha > div {
+  margin: 10px auto;
+}
+
+@media (min-width: 768px) {
+  .nice-select.level {
+    display: none;
+  }
+}
+
 @media (max-width: 767px) {
   .mobile {
     display: block; }
-
   .desktop {
     display: none; } }
+
 .relative {
   position: relative; }
 
@@ -391,6 +403,7 @@ a {
 
 .grid input:disabled {
     color: #535353;
+    background-color: #fff;
 }
 
 .form {

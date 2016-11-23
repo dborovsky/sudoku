@@ -169,6 +169,13 @@ post '/game/completed' do
   end
 end
 
+post '/game/delete' do
+  stash = Stash.find(params[:stash_id])
+  stash.destroy
+  content_type :json
+  { id: params[:stash_id]}.to_json
+end
+
 
 post '/game/stash' do
   if current_user

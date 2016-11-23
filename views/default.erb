@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="css/main.css">
 
   <!-- Scripts -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery.nice-select.js"></script>
   <script src="js/remodal.js"></script>
@@ -149,6 +150,8 @@
                   <input type="text" placeholder="E-mail" name="email">
                   <input type="password" placeholder="Password" name="password">
 
+                  <div class="g-recaptcha" data-sitekey="6LccmwwUAAAAAPelfC8JSIeMMLOhe4G9B7gLJmDp"></div>
+
                   <div class="toogle-block">
                     <a href="javascript:void(0)" class="toggle-link tr-open" data-block-name="block-lost-password">Lost password?</a>
                   </div>
@@ -166,6 +169,7 @@
                 <div data-block-name="block-registration" class="hidden">
                   <form action="/sign_up" method="POST">
                     <input type="text" placeholder="E-mail" name="email">
+                    <input type="text" placeholder="Username" name="name">
                     <input type="password" placeholder="Password" name="password">
                     <input type="password" placeholder="Repeat password">
                     <button type="submit" class="btn">Sign up</button>
@@ -297,7 +301,7 @@
         <td class="saves-item-time desktop">Time: <%= game.time %></td>
         <td class="saves-item-ctrls">
           <a href="/?stashed_game=<%= game.id %>" class="load-save">Load game</a>
-          <a href="#" class="delete-save"></a>
+          <a href="#" class="delete-save" data-stash-id="<%= game.id %>"></a>
         </td>
       </tr>
       <tr class="spacer"></tr>

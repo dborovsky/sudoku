@@ -54,11 +54,7 @@ Zeitschriften auf der ganzen Welt veröffentlicht. Extra für Sie haben wir die 
           <div class="game-menu">
             <div class="item">
               <i class="icon save"></i>
-              <a href="javascript:void(0)" data-remodal-target="modal-saves">Save game</a>
-            </div>
-            <div class="item">
-              <i class="icon open"></i>
-              <a href="javascript:void(0)" data-remodal-target="modal-saves">Load game</a>
+              <a href="javascript:void(0)" data-remodal-target="modal-saves">Save/Load game</a>
             </div>
             <div class="item">
               <i class="icon print"></i>
@@ -99,7 +95,7 @@ Zeitschriften auf der ganzen Welt veröffentlicht. Extra für Sie haben wir die 
 
 <div class="container">
   <div class="row clearfix">
-    <div class="column full">
+    <div class="column full rangliste">
       <br><br>
       <h2>Rangliste der Spieler</h2>
 
@@ -108,7 +104,18 @@ Zeitschriften auf der ganzen Welt veröffentlicht. Extra für Sie haben wir die 
           <th class="col-id text aligned right">#</th>
           <th class="col-username text aligned left">Username</th>
           <th class="col-easy text aligned right desktop">Easy</th>
-          <th class="col-medium text aligned right">Medium</th>
+          <th class="col-medium text aligned right">
+            <div class="desktop">Medium</div>
+            <div class="mobile">
+              <select class="level">
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+                <option value="expert">Expert</option>
+                <option value="insane">Insane</option>
+              </select>
+            </div>
+          </th>
           <th class="col-hard text aligned right desktop">Hard</th>
           <th class="col-expert text aligned right desktop">Expert</th>
           <th class="col-insane text aligned right desktop">Insane</th>
