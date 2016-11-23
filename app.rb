@@ -104,7 +104,7 @@ post '/send' do
     :enable_starttls_auto => true,
     :user_name            => 'cvbelarus@gmail.com',
     :password             => 'dzmitry1982',
-    :authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
+    #:authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
     :domain               => "sudoku11.herokuapp.com" # the HELO domain provided by the client to the server
   }
   })
@@ -180,13 +180,6 @@ post '/game/completed' do
   else
     :ok
   end
-end
-
-post '/game/delete' do
-  stash = Stash.find(params[:stash_id])
-  stash.destroy
-  content_type :json
-  { id: params[:stash_id]}.to_json
 end
 
 
