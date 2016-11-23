@@ -473,8 +473,7 @@ a {
     padding-top: 20px; }
     .header .header-social a {
       display: inline-block;
-      font-size: 13px;
-      margin: 0 3px; }
+      font-size: 18px;}
   .header .hamburger {
     width: 25px;
     height: 25px;
@@ -850,7 +849,7 @@ div.timer {
   margin: 10px 0 20px 0; }
   .modal-social a {
     border-radius: 100%;
-    font-size: 10px;
+    font-size: 14px;
     margin-left: 3px;
     margin-right: 3px; }
 
@@ -876,5 +875,13 @@ div.timer {
         padding-bottom: 12px; } }
     .footer .footer-social a {
       display: inline-block;
-      font-size: 13px;
-      margin: 0 3px; }
+      font-size: 18px;}
+
+.jssocials-share-link {
+  padding: 0!important;
+  background-color: transparent!important;
+}
+.jssocials-share-link img {
+  display: block;
+  border-radius: 100%;
+}
