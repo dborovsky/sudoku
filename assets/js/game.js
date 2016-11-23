@@ -153,6 +153,7 @@ function ($, Grid, System, Validator, Solver, Levels, Timer, ScoresCounter) { 'u
             ScoresCounter.setToZero();
             ScoresCounter.solveButtonPress();
             solveSudoku();
+            $('input.field-with-error').removeClass('field-with-error');
         });
 
         $('#clear-btn').on('click', function () {
