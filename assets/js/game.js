@@ -190,8 +190,6 @@ function ($, Grid, System, Validator, Solver, Levels, Timer, ScoresCounter) { 'u
 
             $.post('/game/stash', { stashed_grid_numbers: stashed_array_numbers, right_solution: right_solution,
                                     disabled_grid: disabled_array, 'scores': resultScores, 'level': current_level , 'time': time }, function (data) {
-                                        // console.log(data);
-                                        // alert('Игра сохранена');
                                         var tr = '<tr class="spacer"></tr>' +
                                                  '<tr class="saves-item">' +
                                                     '<td class="saves-item-mark marked"></td>' +
@@ -200,7 +198,7 @@ function ($, Grid, System, Validator, Solver, Levels, Timer, ScoresCounter) { 'u
                                                     '<td class="saves-item-time desktop">Time: ' + data.time + '</td>' +
                                                     '<td class="saves-item-ctrls">' +
                                                       '<a href="/?stashed_game=' + data.id + '" class="load-save">Load game</a>' +
-                                                      '<a href="#" class="delete-save"></a>' +
+                                                      '<a href="#" class="delete-save" data-stash-id="' + data.id + '"></a>' +
                                                     '</td>' +
                                                   '</tr>';
                                         $(tr).insertAfter('.stassh:last');

@@ -18,6 +18,9 @@
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/nice-select.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials.css" />
+  <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials-theme-flat.css" />
   <link rel="stylesheet" href="css/remodal.css">
   <link rel="stylesheet" href="css/remodal-default-theme.css">
   <link rel="stylesheet" href="css/main.css">
@@ -25,6 +28,8 @@
   <!-- Scripts -->
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery.nice-select.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials.min.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script src="js/remodal.js"></script>
   <script src="js/main-ui.js"></script>
 
@@ -46,9 +51,9 @@
         </div>
         <div class="column half desktop">
           <div class="header-social desktop">
-            <a href="#"><img src="/img/icon-facebook.png" alt="Facebook"></a>
+            <!-- <a href="#"><img src="/img/icon-facebook.png" alt="Facebook"></a>
             <a href="#"><img src="/img/icon-google.png" alt="Google"></a>
-            <a href="#"><img src="/img/icon-twitter.png" alt="Twitter"></a>
+            <a href="#"><img src="/img/icon-twitter.png" alt="Twitter"></a> -->
           </div>
         </div>
       </div>
@@ -149,6 +154,8 @@
                   <input type="text" placeholder="E-mail" name="email">
                   <input type="password" placeholder="Password" name="password">
 
+                  <div class="g-recaptcha" data-sitekey="6LccmwwUAAAAAPelfC8JSIeMMLOhe4G9B7gLJmDp"></div>
+
                   <div class="toogle-block">
                     <a href="javascript:void(0)" class="toggle-link tr-open" data-block-name="block-lost-password">Lost password?</a>
                   </div>
@@ -166,6 +173,7 @@
                 <div data-block-name="block-registration" class="hidden">
                   <form action="/sign_up" method="POST">
                     <input type="text" placeholder="E-mail" name="email">
+                    <input type="text" placeholder="Username" name="name">
                     <input type="password" placeholder="Password" name="password">
                     <input type="password" placeholder="Repeat password">
                     <button type="submit" class="btn">Sign up</button>
@@ -213,9 +221,9 @@
         </div>
         <div class="column half">
           <div class="footer-social">
-            <a href="#"><img src="img/icon-facebook.png" alt="Facebook"></a>
+            <!-- <a href="#"><img src="img/icon-facebook.png" alt="Facebook"></a>
             <a href="#"><img src="img/icon-google.png" alt="Google"></a>
-            <a href="#"><img src="img/icon-twitter.png" alt="Twitter"></a>
+            <a href="#"><img src="img/icon-twitter.png" alt="Twitter"></a> -->
           </div>
         </div>
       </div>
@@ -268,15 +276,15 @@
       <img src="img/icon-correct.png" alt=":)">
     </div>
     <div class="text aligned center">
-      <div class="modal-results">Time: 02:25:34</div>
-      <div class="modal-results">Score: 453 020</div>
+      <div class="modal-results">Time: <span class="res-time"></span></div>
+      <div class="modal-results">Score: <span class="res-score"></span></div>
     </div>
     <div class="text aligned center modal-social">
       <p>Your solution is correct</p>
-      <div>
-        <a href="#"><img src="img/icon-fb.png" alt="Facebook"></a>
+      <div class="modal-social-icons">
+        <!-- <a href="#"><img src="img/icon-fb.png" alt="Facebook"></a>
         <a href="#"><img src="img/icon-gp.png" alt="Google+"></a>
-        <a href="#"><img src="img/icon-tw.png" alt="Twitter"></a>
+        <a href="#"><img src="img/icon-tw.png" alt="Twitter"></a> -->
       </div>
     </div>
     <div class="text aligned center">
@@ -297,7 +305,7 @@
         <td class="saves-item-time desktop">Time: <%= game.time %></td>
         <td class="saves-item-ctrls">
           <a href="/?stashed_game=<%= game.id %>" class="load-save">Load game</a>
-          <a href="#" class="delete-save"></a>
+          <a href="#" class="delete-save" data-stash-id="<%= game.id %>"></a>
         </td>
       </tr>
       <tr class="spacer"></tr>

@@ -9,6 +9,12 @@
 
         r = window.remodals = {};
 
+    $(".footer-social, .header-social, .modal-social-icons").jsSocials({
+      showLabel: false,
+      showCount: false,
+      shares: ["facebook", "googleplus", "twitter"]
+    });
+
 
     ///////////////////
     // Init Remodals //
@@ -20,11 +26,24 @@
     r.remodalValidate = $('[data-remodal-id="modal-validate"]').remodal();
 
 
+    $('.delete-save').on('click', function (e) {
+      var stashID = $(this).data('stash-id');
+      var $deleteBtn = $(this);
+
+      if (stashID) {
+        $.post('/game/delete', { stash_id: stashID}, function(data, textStatus, xhr) {
+          if (data.id) {
+            $deleteBtn.parent().parent().hide();
+          }
+        });
+      }
+    });
+
+
     //////////////////////////////////////////////////////////
     // Close mobile Main menu when clicked on another place //
     //////////////////////////////////////////////////////////
     $(document).on('click', function (e) {
-      console.log(e);
 
       if ($(e.target).hasClass('overlay')) {
         $hamburger.removeClass('opened');
