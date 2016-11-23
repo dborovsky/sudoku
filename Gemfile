@@ -12,4 +12,6 @@ gem "pony"
 
 group :development do
   gem "shotgun"
+  gem "byebug"
+  gem "pry-byebug"
 end
