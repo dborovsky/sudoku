@@ -73,6 +73,8 @@ define('validator', ['system', 'timer', 'levels', 'scores_counter'], function(Sy
                 // var resultMessage = "Congratulations! Your solution is correct. Your scores: " + resultScores + '. Do you want to start a new game?';
             } else {
                 // var resultMessage = "Congratulations! Your solution is correct. But your scores is zero, sorry. Do you want to start a new game?";
+                $('.res-time').text(Timer.getTime());
+                $('.res-score').text(resultScores);
                 window.remodals.remodalCorrect.open();
             }
             // System.printNotice(resultMessage);

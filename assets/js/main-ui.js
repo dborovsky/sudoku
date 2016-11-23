@@ -9,6 +9,12 @@
 
         r = window.remodals = {};
 
+    $(".footer-social, .header-social, .modal-social-icons").jsSocials({
+      showLabel: false,
+      showCount: false,
+      shares: ["facebook", "googleplus", "twitter"]
+    });
+
 
     ///////////////////
     // Init Remodals //
