@@ -25,7 +25,17 @@
     $(".footer-social, .header-social, .modal-social-icons").jsSocials({
       showLabel: false,
       showCount: false,
-      shares: ["facebook", "googleplus", "twitter"]
+      shares: [{
+        share: "facebook",
+        logo: "../img/icon-facebook.png"
+      },
+      {
+        share: "googleplus",
+        logo: "../img/icon-google.png"
+      }, {
+        share: "twitter",
+        logo: "../img/icon-twitter.png"
+      }]
     });
 
 

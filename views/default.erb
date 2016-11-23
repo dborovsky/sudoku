@@ -29,7 +29,6 @@
   <script src="js/jquery.min.js"></script>
   <script src="js/jquery.nice-select.js"></script>
   <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials.min.js"></script>
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <script src="js/remodal.js"></script>
   <script src="js/main-ui.js"></script>
 
@@ -87,7 +86,7 @@
               </a>
             <% end %>
 
-            <a href="javascript:void(0)" class="nav-best mobile"></a>
+            <a href="javascript:void(0)" class="nav-best"></a>
 
             <div class="best-players mobile best-dropdown">
               <div class="best-players-head">
@@ -153,9 +152,7 @@
                 <form action="/sign_in" method="POST" >
                   <input type="text" placeholder="E-mail" name="email" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
                   <input type="password" placeholder="Password" name="password" required="">
-
-                  <div class="g-recaptcha" data-sitekey="6LdRtwwUAAAAAKtQCZj9_JLMjmLWSr6iYzuyJs3f"></div>
-
+                  
                   <div class="toogle-block">
                     <a href="javascript:void(0)" class="toggle-link tr-open" data-block-name="block-lost-password">Lost password?</a>
                   </div>
@@ -264,6 +261,18 @@
     <h1>This fields cannot be blank. Please, check again</h1>
     <div class="text aligned center">
       <img src="img/icon-wrong.png" alt=":(">
+    </div>
+    <br>
+    <div class="text aligned center">
+      <a href="javascript:void(0)" data-remodal-action="close">Close window</a>
+    </div>
+  </div>
+
+  <div class="remodal" data-remodal-id="modal-please-auth" data-remodal-options="hashTracking: false">
+    <button data-remodal-action="close" class="remodal-close"></button>
+    <h1>Please, sign-in or register for using this feature</h1>
+    <div class="text aligned center">
+      <img src="img/icon-correct.png" alt=":)">
     </div>
     <br>
     <div class="text aligned center">
