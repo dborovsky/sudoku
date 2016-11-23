@@ -95,6 +95,7 @@ h1, h2 {
 
 .container {
   margin: 0 auto;
+  min-width: 320px;
   max-width: 960px; }
 
 .controls .ctrl {
@@ -293,6 +294,13 @@ a {
     width: 15%; }
   .table .col-last {
     width: 15%; }
+  @media (max-width: 459px) {
+    .table th, .table td {
+      font-size: 13px;
+      padding: 0 2px; }
+    .table .col-id {
+      width: 3%; }
+  }
 
 
 @-webkit-keyframes pulse {
