@@ -313,6 +313,7 @@
     <h1>Saves</h1>
     <% if current_user %>
     <table class="saves">
+      <% if @stashed_games %>
       <% @stashed_games.each do |game| %>
       <tr class="saves-item stassh">
         <td class="saves-item-mark marked"></td>
@@ -325,6 +326,7 @@
         </td>
       </tr>
       <tr class="spacer"></tr>
+      <% end %>
       <% end %>
       <tr class="saves-item">
         <td class="saves-item-mark"></td>

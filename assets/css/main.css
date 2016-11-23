@@ -368,9 +368,9 @@ a {
     font-size: 20px;
     cursor: pointer;
     color: transparent;
+    font-weight: 300;
     text-align: center;
     text-shadow: 0 0 0 black;
-    font-weight: bold;
     outline: none;
     border: none;
 }
