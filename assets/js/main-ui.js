@@ -9,6 +9,19 @@
 
         r = window.remodals = {};
 
+    function convertTime () {
+      $.each($('.t_time'), function(index, val) {
+         var time = $(val).text().split(',');
+
+         $(val).text(time.join(':'));
+         console.log(time);
+      });
+    }
+
+    convertTime();
+    window.convertTime = convertTime;
+
+
     $(".footer-social, .header-social, .modal-social-icons").jsSocials({
       showLabel: false,
       showCount: false,
@@ -25,8 +38,7 @@
     r.remodalSend = $('[data-remodal-id="modal-send"]').remodal();
     r.remodalValidate = $('[data-remodal-id="modal-validate"]').remodal();
 
-
-    $('.delete-save').on('click', function (e) {
+    window.deleteSave = function (e) {
       var stashID = $(this).data('stash-id');
       var $deleteBtn = $(this);
 
@@ -37,7 +49,9 @@
           }
         });
       }
-    });
+    };
+
+    $('.delete-save').on('click', deleteSave);
 
 
     //////////////////////////////////////////////////////////

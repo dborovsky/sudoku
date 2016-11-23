@@ -68,22 +68,20 @@ define('validator', ['system', 'timer', 'levels', 'scores_counter'], function(Sy
             if ( !ScoresCounter.solveButtonIsPressed() ) {
                 $.post('/game/completed', { 'scores': resultScores, 'level': current_level })
             }
-            // выводим сообщение
-            if (resultScores > 0) {
-                // var resultMessage = "Congratulations! Your solution is correct. Your scores: " + resultScores + '. Do you want to start a new game?';
-            } else {
-                // var resultMessage = "Congratulations! Your solution is correct. But your scores is zero, sorry. Do you want to start a new game?";
-                $('.res-time').text(Timer.getTime());
-                $('.res-score').text(resultScores);
-                window.remodals.remodalCorrect.open();
-            }
-            // System.printNotice(resultMessage);
+
+            var time = Timer.getTime().split(',');
+
+            $('.res-time').text(time.join(':'));
+            $('.res-score').text(resultScores);
+            window.remodals.remodalCorrect.open();
+
             Timer.stop();
+
             return true;
         }
         else {
-            // System.printAlert("Your solution is wrong!");
             window.remodals.remodalWrong.open();
+
             return false;
         }
     };

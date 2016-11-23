@@ -151,8 +151,8 @@
                                    <%= 'hidden' %>
                                    <% end %>">
                 <form action="/sign_in" method="POST" >
-                  <input type="text" placeholder="E-mail" name="email">
-                  <input type="password" placeholder="Password" name="password">
+                  <input type="text" placeholder="E-mail" name="email" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                  <input type="password" placeholder="Password" name="password" required="">
 
                   <div class="g-recaptcha" data-sitekey="6LdRtwwUAAAAAKtQCZj9_JLMjmLWSr6iYzuyJs3f"></div>
 
@@ -172,12 +172,27 @@
                 </div>
                 <div data-block-name="block-registration" class="hidden">
                   <form action="/sign_up" method="POST">
-                    <input type="text" placeholder="E-mail" name="email">
-                    <input type="text" placeholder="Username" name="name">
-                    <input type="password" placeholder="Password" name="password">
-                    <input type="password" placeholder="Repeat password">
+                    <input type="text" placeholder="E-mail" name="email" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                    <input type="text" placeholder="Username" name="name" required="">
+                    <input type="password" placeholder="Password" id="c-password" name="password" required="">
+                    <input type="password" placeholder="Confirm password" id="c-confirm_password" required="">
                     <button type="submit" class="btn">Sign up</button>
                   </form>
+                  <script>
+                    var password = document.getElementById("c-password")
+                      , confirm_password = document.getElementById("c-confirm_password");
+
+                    function validatePassword(){
+                      if(password.value != confirm_password.value) {
+                        confirm_password.setCustomValidity("Passwords Don't Match");
+                      } else {
+                        confirm_password.setCustomValidity('');
+                      }
+                    }
+
+                    password.onchange = validatePassword;
+                    confirm_password.onkeyup = validatePassword;
+                  </script>
                 </div>
               </div>
             </div>
@@ -302,7 +317,7 @@
         <td class="saves-item-mark marked"></td>
         <td class="saves-item-date"><%= game.created_at.strftime("%b %d, %H:%M") %></td>
         <td class="saves-item-score desktop">Scores: <%= game.scores %></td>
-        <td class="saves-item-time desktop">Time: <%= game.time %></td>
+        <td class="saves-item-time desktop">Time: <span class="t_time"><%= game.time %></span></td>
         <td class="saves-item-ctrls">
           <a href="/?stashed_game=<%= game.id %>" class="load-save">Load game</a>
           <a href="#" class="delete-save" data-stash-id="<%= game.id %>"></a>
