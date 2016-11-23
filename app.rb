@@ -102,8 +102,8 @@ post '/send' do
     :address              => 'smtp.gmail.com',
     :port                 => '587',
     :enable_starttls_auto => true,
-    :user_name            => 'd.borowskij@gmail.com',
-    :password             => 'milanka1982',
+    :user_name            => 'cvbelarus@gmail.com',
+    :password             => 'dzmitry1982',
     :authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
     :domain               => "sudoku11.herokuapp.com" # the HELO domain provided by the client to the server
   }
