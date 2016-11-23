@@ -33,6 +33,7 @@ h1, h2 {
   .footer,
   .banner,
   .rangliste,
+  .nav,
   .grid-controls,
   .flow-opposite,
   .image,
@@ -545,7 +546,7 @@ a {
           display: none!important; } }
 
   .nav .nav-best {
-    display: none;
+    display: none!important;
     float: right;
     background-color: #f9d426;
     background-image: url("../img/icon-best.png");
@@ -555,7 +556,7 @@ a {
     width: 53px; }
     @media (max-width: 767px) {
       .nav .nav-best {
-        display: block;
+        display: block!important;
       }
     }
   .nav .nav-auth {
