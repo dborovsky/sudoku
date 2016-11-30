@@ -1,10 +1,10 @@
-require 'rvm/capistrano'
+#require 'rvm/capistrano'
 require 'bundler/capistrano'
  
 #RVM and bundler settings
-set :bundle_cmd, "/home/deploy/.rvm/gems/ruby-2.3.1-p112@global/bin/bundle"
-set :bundle_dir, "/home/deploy/.rvm/gems/ruby-2.3.1-p112/gems"
-set :rvm_ruby_string, :local
+#set :bundle_cmd, "/home/deploy/.rvm/gems/ruby-2.3.1-p112@global/bin/bundle"
+#set :bundle_dir, "/home/deploy/.rvm/gems/ruby-2.3.1-p112/gems"
+#set :rvm_ruby_string, :local
 set :rack_env, :production
  
 #general info
@@ -32,11 +32,7 @@ ssh_options[:forward_agent] = true
 ssh_options[:keys] = [File.join(ENV["HOME"], ".ssh", "id_rsa")]
 ssh_options[:paranoid] = false
 default_run_options[:pty] = true
-# if you want to clean up old releases on each deploy uncomment this:
-# after "deploy:restart", "deploy:cleanup"
- 
-# if you're still using the script/reaper helper you will need
-# these http://github.com/rails/irs_process_scripts
+
  
 # After an initial (cold) deploy, symlink the app and restart nginx
 after "deploy:cold" do
