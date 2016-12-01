@@ -1,3 +1,5 @@
+lock '3.4.0'
+
 set :application, 'sudoku'
 set :repo_url, 'git@github.com:dborovsky/sudoku.git'
 
@@ -5,6 +7,7 @@ set :deploy_to, '/home/deploy/sudoku'
 
 #set :linked_files, %w{config/database.yml}
 set :linked_dirs, %w{ log }
+
 
 namespace :deploy do
 
@@ -31,10 +34,11 @@ end
 # require 'bundler/capistrano'
  
 # #RVM and bundler settings
-# #set :bundle_cmd, "/home/deploy/.rvm/gems/ruby-2.3.1-p112@global/bin/bundle"
-# #set :bundle_dir, "/home/deploy/.rvm/gems/ruby-2.3.1-p112/gems"
-# #set :rvm_ruby_string, :local
-# set :rack_env, :production
+#set :bundle_cmd, "/home/deploy/.rvm/gems/ruby-2.3.1:/home/deploy/.rvm/gems/ruby-2.3.1@global"
+
+#set :bundle_dir, "/home/deploy/.rvm/gems/ruby-2.3.1/bin:/home/deploy/.rvm/gems/ruby-2.3.1@global/bin:/home/deploy/.rvm/rubies/ruby-2.3.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/deploy/.rvm/bin:/home/deploy/.rvm/bin"
+#set :rvm_ruby_string, :local
+#set :rack_env, :production
  
 # #general info
 # set :user, 'deploy'
