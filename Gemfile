@@ -11,7 +11,7 @@ gem "pry"
 gem "pony"
 gem "capistrano", '~> 3.1.0'
 gem "capistrano-bundler", '~> 1.1.2'
-gem "capistrano-rvm", require: false
+gem "capistrano-rvm", github: "capistrano/rvm", require: false
 
 group :development do
   gem "shotgun"

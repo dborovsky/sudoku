@@ -2,11 +2,13 @@ require "sinatra"
 require "pry"
 require "sinatra/activerecord"
 require 'sinatra/flash'
+require 'sinatra/base'
 require "./models/user"
 require "./models/game_counter"
 require "./models/stash"
 require "json"
 require "pony"
+require 'logger'
 
 
 enable :static
@@ -26,6 +28,23 @@ end
 set :static_cache_control, [:public, {:no_store => 1}]
 
 db = ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'postgres://localhost/sudoku_database')
+
+
+
+#logs for production
+::Logger.class_eval { alias :write :'<<' }
+  access_log = ::File.join(::File.dirname(::File.expand_path(__FILE__)),'log','access.log')
+  access_logger = ::Logger.new(access_log)
+  error_logger = ::File.new(::File.join(::File.dirname(::File.expand_path(__FILE__)),'log','error.log'),"a+")
+  error_logger.sync = true
+
+configure do
+    use ::Rack::CommonLogger, access_logger
+  end
+ 
+  before {
+    env["rack.errors"] =  error_logger
+  }  
 
 
 LEVELS_TABLE = {

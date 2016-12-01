@@ -3,6 +3,8 @@ require 'capistrano/setup'
 
 # Include default deployment tasks
 require 'capistrano/deploy'
+require 'capistrano/bundler'
+
 
 # If you are using rbenv add these lines:
 # require 'capistrano/rbenv'
