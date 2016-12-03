@@ -27,24 +27,24 @@ end
 
 set :static_cache_control, [:public, {:no_store => 1}]
 
-db = ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'postgres://localhost/sudoku_database')
+#db = ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'postgres://localhost/sudoku_database')
 
 
 
-#logs for production
-::Logger.class_eval { alias :write :'<<' }
-  access_log = ::File.join(::File.dirname(::File.expand_path(__FILE__)),'log','access.log')
-  access_logger = ::Logger.new(access_log)
-  error_logger = ::File.new(::File.join(::File.dirname(::File.expand_path(__FILE__)),':stage,log','error.log'),"a+")
-  error_logger.sync = true
+# #logs for production
+# ::Logger.class_eval { alias :write :'<<' }
+#   access_log = ::File.join(::File.dirname(::File.expand_path(__FILE__)),'log','access.log')
+#   access_logger = ::Logger.new(access_log)
+#   error_logger = ::File.new(::File.join(::File.dirname(::File.expand_path(__FILE__)),':stage,log','error.log'),"a+")
+#   error_logger.sync = true
 
-configure do
-    use ::Rack::CommonLogger, access_logger
-  end
+# configure do
+#     use ::Rack::CommonLogger, access_logger
+#   end
  
-  before {
-    env["rack.errors"] =  error_logger
-  }  
+#   before {
+#     env["rack.errors"] =  error_logger
+#   }  
 
 
 LEVELS_TABLE = {
