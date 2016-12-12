@@ -17,9 +17,9 @@ enable :sessions
 
 set :public_folder, File.dirname(__FILE__) + '/assets'
 
-configure :development do
-  set :database, { adapter: "postgresql", database: "sudoku_database", pool: 5, timeout: 5000 }
-end
+#configure :development do
+ # set :database, { adapter: "postgresql", database: "sudoku_database", pool: 5, timeout: 5000 }
+#end
 
 configure :production do
   set :database, { adapter: "postgresql", database: "sudoku_prod", pool: 5, timeout: 5000, username: 'deploy', password: 'qwerty' }
