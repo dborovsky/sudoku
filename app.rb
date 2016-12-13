@@ -27,7 +27,7 @@ end
 
 set :static_cache_control, [:public, {:no_store => 1}]
 
-#db = ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'postgres://localhost/sudoku_database')
+db = ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'postgres://localhost/sudoku_database')
 
 
 
