@@ -21,9 +21,9 @@ set :public_folder, File.dirname(__FILE__) + '/assets'
  # set :database, { adapter: "postgresql", database: "sudoku_database", pool: 5, timeout: 5000 }
 #end
 
-configure :production do
+#configure :production do
   set :database, { adapter: "postgresql", database: "sudoku_prod", pool: 5, timeout: 5000, username: 'deploy', password: 'qwerty' }
-end
+#end
 
 set :static_cache_control, [:public, {:no_store => 1}]
 
