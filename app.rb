@@ -17,17 +17,18 @@ enable :sessions
 
 set :public_folder, File.dirname(__FILE__) + '/assets'
 
+set :database, { adapter: "sqlite3", database: "sudoku_database.sqlite3" }
 #configure :development do
  # set :database, { adapter: "postgresql", database: "sudoku_database", pool: 5, timeout: 5000 }
 #end
 
-configure :production do
-  set :database, { adapter: "postgresql", database: "test_prod", pool: 5, timeout: 5000, username: 'deploy1', password: 'qwerty' }
-end
+#configure :production do
+  #set :database, { adapter: "postgresql", database: "test_prod", pool: 5, timeout: 5000, username: 'deploy1', password: 'qwerty' }
+#end
 
 set :static_cache_control, [:public, {:no_store => 1}]
 
-db = ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'postgres://localhost/sudoku_database')
+#db = ActiveRecord::Base.establish_connection(ENV['DATABASE_URL'] || 'postgres://localhost/sudoku_database')
 
 
 
