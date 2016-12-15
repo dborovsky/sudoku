@@ -3,6 +3,7 @@ require "pry"
 require "sinatra/activerecord"
 require 'sinatra/flash'
 require 'sinatra/base'
+require "sinatra/config_file"
 require "./models/user"
 require "./models/game_counter"
 require "./models/stash"
@@ -14,6 +15,7 @@ require 'logger'
 enable :static
 enable :sessions
 
+config_file '/config/config.yml'
 
 set :public_folder, File.dirname(__FILE__) + '/assets'
 
@@ -21,9 +23,9 @@ configure :development do
   set :database, { adapter: "sqlite3", database: "sudoku_database.sqlite3" }
 end
 
-#configure :production do
-  set :database, { adapter: "sqlite3", database: "sudoku_database.sqlite3" }
-#end
+configure :production do
+  set :database, { adapter: "sqlite3", database: "db/sudoku_database.sqlite3" }
+end
 #configure :development do
  # set :database, { adapter: "postgresql", database: "sudoku_database", pool: 5, timeout: 5000 }
 #end
