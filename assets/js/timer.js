@@ -24,6 +24,10 @@ define('timer', ['jQuery'], function ($) { 'use strict';
         }, 1000);
     };
 
+    function pause() {
+        stop();
+    }
+
     function stop() {
         clearInterval(timer);
     };
