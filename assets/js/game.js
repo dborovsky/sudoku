@@ -127,27 +127,6 @@ function ($, Grid, System, Validator, Solver, Levels, Timer, ScoresCounter) { 'u
             }, 200);
         });
 
-        $('.generate [data-value="easy"]').on('click', function() {
-            generate(View, 35);
-        })
-
-        $('.generate [data-value="medium"]').on('click', function() {
-            generate(View, 40);
-        })
-
-        $('.generate [data-value="hard"]').on('click', function() {
-            generate(View, 45);
-        })
-
-        $('.generate [data-value="expert"]').on('click', function() {
-            generate(View, 50);
-        })
-
-        $('.generate [data-value="insane"]').on('click', function() {
-            generate(View, 55);
-        })
-
-
         $('#solve-btn').on('click', function () {
             // solve();
             ScoresCounter.setToZero();
