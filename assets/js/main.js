@@ -16,8 +16,43 @@ require(['jQuery', 'game', 'view'], function($, Game, View) { 'use strict';
         if (window.stashedGame) {
             Game.restore(View);
         } else {
-            Game.generate(View, 35);
+            Game.level = 35;
+            Game.generate(View, Game.level);
         }
+
+        $('.generate [data-value="easy"]').on('click', function() {
+            Game.level = 35;
+            Game.generate(View, Game.level);
+        })
+
+        $('.generate [data-value="medium"]').on('click', function() {
+            Game.level = 40;
+            Game.generate(View, Game.level);
+        })
+
+        $('.generate [data-value="hard"]').on('click', function() {
+            Game.level = 45;
+            Game.generate(View, Game.level);
+        })
+
+        $('.generate [data-value="expert"]').on('click', function() {
+            Game.level = 50;
+            Game.generate(View, Game.level);
+        })
+
+        $('.generate [data-value="insane"]').on('click', function() {
+            Game.level = 55;
+            Game.generate(View, Game.level);
+        })
+
+        $('.new-game').on('click', function(event) {
+            if (Game.level) {
+                Game.generate(View, Game.level);
+            } else {
+                Game.level = 35;
+                Game.generate(View, Game.level);
+            }
+        });
 
         $('.select-level > button').on('click', function() {
             if ( !$(this).hasClass('btn-active') ) {
