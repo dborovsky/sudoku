@@ -15,20 +15,20 @@ require 'logger'
 enable :static
 enable :sessions
 
-config_file '/config/config.yml'
+#config_file '/config/config.yml'
 
 set :public_folder, File.dirname(__FILE__) + '/assets'
 
-if RACK_ENV="development"
+#if RACK_ENV="development"
 
 #configure :development do
-  set :database, { adapter: "sqlite3", database: "sudoku_database.sqlite3" }
+  #set :database, { adapter: "sqlite3", database: "sudoku_database.sqlite3" }
 #end
-else
+#else
 #configure :production do
-  set :database, { adapter: "sqlite3", database: File.expand_path("~/db/sudoku_database.sqlite3")  }
+  #set :database, { adapter: "sqlite3", database: File.expand_path("~/db/sudoku_database.sqlite3")  }
 #end
-end
+#end
 #configure :development do
  # set :database, { adapter: "postgresql", database: "sudoku_database", pool: 5, timeout: 5000 }
 #end
