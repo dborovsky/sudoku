@@ -22,7 +22,7 @@ configure :development do
 end
 
 configure :production do
-  set :database, { adapter: "sqlite3", database: "sudoku/sudoku_database.sqlite3" }
+  set :database, { adapter: "sqlite3", database: "../sudoku/sudoku_database.sqlite3" }
 end
 #configure :development do
  # set :database, { adapter: "postgresql", database: "sudoku_database", pool: 5, timeout: 5000 }
