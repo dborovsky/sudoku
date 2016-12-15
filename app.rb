@@ -65,6 +65,10 @@ helpers do
   end
 end
 
+not_found do
+  status 404
+  erb :notfound
+end
 
 get '/' do
   @top_players = User.all.order('scores desc')

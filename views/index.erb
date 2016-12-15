@@ -13,7 +13,7 @@
 <div class="content marked">
 <div class="container">
   <div class="row clearfix">
-    <div class="column four-fifth">
+    <div class="column full">
       <div class="row clearfix">
         <div class="column full no-padding desktop">
           <p class="text">Sudoku ist eines der beliebtesten Zahlenrätsel. Das Spiel wird regelmäßig in den Zeitungen und 
@@ -21,7 +21,7 @@ Zeitschriften auf der ganzen Welt veröffentlicht. Extra für Sie haben wir die 
         </div>
       </div>
       <div class="row clearfix">
-        <div class="column two-fourth no-padding mobile">
+        <div class="column two-thirds no-padding mobile">
           <div class="row clearfix grid-controls relative">
             <div class="controls">
               <div class="ctrl floated left">
@@ -32,6 +32,7 @@ Zeitschriften auf der ganzen Welt veröffentlicht. Extra für Sie haben wir die 
                   <option value="expert">Expert</option>
                   <option value="insane">Insane</option>
                 </select>
+                <button class="btn new-game">New Game</button>
                 <div class="timer">
                   <i class="icon timer"></i>
                   <span id="timer">00:00:00</span>
@@ -43,6 +44,7 @@ Zeitschriften auf der ganzen Welt veröffentlicht. Extra für Sie haben wir die 
                 <button class="btn primary game" id="clear-btn">Clear</button>
                 <button class="btn primary game" id="hint-btn">Hint</button>
                 <button class="btn primary game" id="check-btn">Check</button>
+                <button class="btn primary game" id="pause-btn">Pause</button>
               </div>
 
             </div>
@@ -50,7 +52,7 @@ Zeitschriften auf der ganzen Welt veröffentlicht. Extra für Sie haben wir die 
           <div id="grid-wrapper"></div>
         </div>
 
-        <div class="column fourth flow-opposite no-pad-side">
+        <div class="column third flow-opposite no-pad-side">
           <div class="game-menu">
             <% if current_user %>
               <div class="item">
@@ -91,11 +93,11 @@ Zeitschriften auf der ganzen Welt veröffentlicht. Extra für Sie haben wir die 
       </div>
     </div>
 
-    <div class="column fifth desktop">
+    <!-- <div class="column fifth desktop">
       <a href="#" class="banner vertical">
         <img src="img/banner-vertical.png" alt="">
       </a>
-    </div>
+    </div> -->
   </div>
 </div>
 </div>

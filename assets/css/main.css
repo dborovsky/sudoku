@@ -102,6 +102,18 @@ h1, h2 {
 .controls .ctrl {
   margin-bottom: 30px;
   margin-top: 30px; }
+  .controls .ctrl .btn {
+    height: 36px;
+    font-size: 14px;
+    line-height: 36px;
+    font-weight: normal; }
+  .controls .ctrl .btn.new-game {
+    margin-left: 5px;
+    padding: 0 15px; }
+    .controls .ctrl .btn.new-game:hover {
+      background-color: #133861;
+      color: #fff;
+    }
   @media (max-width: 767px) {
     .controls .ctrl {
       width: 100%;
@@ -162,7 +174,7 @@ h1, h2 {
   margin: 100px auto 60px auto; }
 
 .image {
-  display: block;
+  display: inline-block;
   height: auto;
   width: auto; }
   .image.floated {
@@ -370,7 +382,7 @@ a {
 .grid input {
     width: 57px;
     height: 57px;
-    font-size: 20px;
+    font-size: 25px;
     cursor: pointer;
     color: transparent;
     font-weight: 300;
@@ -468,8 +480,10 @@ a {
 }
 
 .grid input:disabled {
-    color: #535353;
-    background-color: #fff;
+  /*color: #535353;*/
+  color: #2669b5;
+  /*color: #9abce3;*/
+  background-color: #fff;
 }
 
 .form {
@@ -523,10 +537,11 @@ a {
         background-position: 5px -7px; } }
   .header .header-social {
     float: right;
-    padding-top: 20px; }
+    padding-top: 26px; }
     .header .header-social a {
       display: inline-block;
-      font-size: 18px;}
+      margin-left: 3px;
+      font-size: 18px; }
   .header .hamburger {
     width: 25px;
     height: 25px;
@@ -771,6 +786,7 @@ div.timer {
     .game-menu {
       margin-top: 33px; 
       width: 100%;
+      margin-bottom: 7px;
       text-align: center; } }
   .game-menu .item {
     margin-bottom: 5px; }
@@ -797,7 +813,11 @@ div.timer {
     font-weight: 700;
     background-color: #f9d426; }
   .best-players-head span {
+    vertical-align: top;
     line-height: 1.85; }
+    .best-players-head .best-player-icon {
+
+      margin-right: 7px; }
   .best-players-body {
     background-color: #fff;
     border-bottom: 2px solid #eee;
@@ -920,7 +940,7 @@ div.timer {
         padding-bottom: 8px; } }
   .footer .footer-social {
     float: right;
-    padding-top: 20px; }
+    padding-top: 26px; }
     @media (max-width: 767px) {
       .footer .footer-social {
         float: left;
@@ -928,6 +948,7 @@ div.timer {
         padding-bottom: 12px; } }
     .footer .footer-social a {
       display: inline-block;
+      margin-left: 3px;
       font-size: 18px;}
 
 .jssocials-share-link {
@@ -937,4 +958,7 @@ div.timer {
 .modal-social .jssocials-share-link img {
   display: block;
   border-radius: 100%;
+}
+img.jssocials-share-logo {
+  height: auto;
 }

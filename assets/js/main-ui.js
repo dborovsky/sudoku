@@ -22,7 +22,7 @@
     window.convertTime = convertTime;
 
 
-    $(".footer-social, .header-social, .modal-social-icons").jsSocials({
+    $(".modal-social-icons").jsSocials({
       showLabel: false,
       showCount: false,
       shares: [{
