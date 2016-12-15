@@ -137,13 +137,24 @@ function ($, Grid, System, Validator, Solver, Levels, Timer, ScoresCounter) { 'u
 
         $('#clear-btn').on('click', function () {
             View.clearTable();
-            Timer.start();
+            // Timer.start();
             $('input.field-with-error').removeClass('field-with-error');
         });
 
         $('#hint-btn').on('click', function () {
             ScoresCounter.reduceBy(0.1);
             getHint();
+        });
+
+        $('#pause-btn').on('click', function () {
+            var $btn = $(this);
+            if ($btn.hasClass('paused')) {
+                Timer.start();
+                $btn.removeClass('paused').text('Pause');
+            } else {
+                Timer.stop();
+                $btn.addClass('paused').text('Resume');;
+            }
         });
 
         $('#check-btn').on('click', function () {
