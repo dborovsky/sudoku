@@ -6,4 +6,4 @@ development:
 
 production:
   adapter:   "sqlite3"
-  database:  "../../../db/sudoku_database.sqlite3"
+  database:  "home/deploy/sudoku/shared/db/sudoku_database.sqlite3"
