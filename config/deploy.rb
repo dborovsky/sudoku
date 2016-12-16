@@ -4,7 +4,7 @@ set :application, 'sudoku'
 set :repo_url, 'git@github.com:dborovsky/sudoku.git'
 
 set :deploy_to, '/home/deploy/sudoku'
-#set :linked_files, %w{config/database.yml}
+set :linked_files, %w{config/database.yml}
 set :linked_dirs, %w{ log }
 
 
