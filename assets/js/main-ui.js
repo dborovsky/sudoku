@@ -66,6 +66,28 @@
     $('.delete-save').on('click', deleteSave);
 
 
+    //////////////////////////////////////////////
+    // Inform user if he entered existing email //
+    //////////////////////////////////////////////
+    $('#c-register-email').on('keyup', function(e) {
+      var $this = $(this),
+          $err = $('#error-register-email'),
+          value = $(this).val();
+
+      setTimeout(function() {
+        $.post('/check_email', { email: value }, function(data) {
+          if (data.status == 'EXIST') {
+            $err.show();
+            $this.addClass('error');
+          } else {
+            $err.hide();
+            $this.removeClass('error');
+          }
+        });
+      }, 1500);
+    });
+
+
     //////////////////////////////////////////////////////////
     // Close mobile Main menu when clicked on another place //
     //////////////////////////////////////////////////////////

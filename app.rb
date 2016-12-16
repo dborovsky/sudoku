@@ -133,6 +133,22 @@ get '/indexold' do
 end
 
 
+post '/check_email' do
+  user = User.find_by_email(params[:email])
+  if user
+    content_type :json
+    { 
+      :status => 'EXIST'
+    }.to_json
+  else
+    content_type :json
+    { 
+      :status => 'CLEAR'
+    }.to_json
+  end
+end
+
+
 post '/restore' do
   user = User.find_by_email(params[:email])
   if user

@@ -169,7 +169,8 @@
                 </div>
                 <div data-block-name="block-registration" class="hidden">
                   <form action="/sign_up" method="POST">
-                    <input type="text" placeholder="E-mail" name="email" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                    <div class="form-error" id="error-register-email">Email already taken</div>
+                    <input type="text" placeholder="E-mail" name="email" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" id="c-register-email">
                     <input type="text" placeholder="Username" name="name" required="">
                     <input type="password" placeholder="Password" id="c-password" name="password" required="">
                     <input type="password" placeholder="Confirm password" id="c-confirm_password" required="">
