@@ -4,5 +4,5 @@ development:
 
 production:
   adapter:   "sqlite3"
-  database:  "sudoku_database.sqlite3"
+  database:  "../../db/sudoku_database.sqlite3"
   
