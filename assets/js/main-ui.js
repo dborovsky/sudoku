@@ -46,6 +46,8 @@
     r.remodalCorrect = $('[data-remodal-id="modal-solution-correct"]').remodal();
     r.remodalSaves = $('[data-remodal-id="modal-saves"]').remodal();
     r.remodalSend = $('[data-remodal-id="modal-send"]').remodal();
+    r.remodalRestore = $('[data-remodal-id="modal-restore"]').remodal();
+    r.remodalRestoreFail = $('[data-remodal-id="modal-restore-fail"]').remodal();
     r.remodalValidate = $('[data-remodal-id="modal-validate"]').remodal();
 
     window.deleteSave = function (e) {
@@ -108,6 +110,27 @@
         });
       else
         remodals.remodalValidate.open();
+    });
+
+
+    //////////////////////
+    // Restore password //
+    //////////////////////
+    $('#send-password-btn').on('click', function(e) {
+      var cResendEmail = $('#c-resend-email').val();
+
+      if (cResendEmail) {
+        $.post('/restore', {
+          email: cResendEmail
+        }, function(data) {
+          $('#c-resend-email').val('');
+          if (data.status == 'OK') {
+            remodals.remodalRestore.open();
+          } else {
+            remodals.remodalRestoreFail.open();
+          }
+        });
+      }
     });
 
 
@@ -200,7 +223,7 @@
     $('.nav-best').on('click', toggleBestPlayers);
     $('.nav-auth').on('click', toggleAuthMenuItem);
     $('.toggle-link').on('click', toggleLink);
-    $hamburger.on('click', toggleHamburger);
 
+    $hamburger.on('click', toggleHamburger);
   });
 })(jQuery); 

@@ -133,22 +133,49 @@ get '/indexold' do
 end
 
 
+post '/restore' do
+  user = User.find_by_email(params[:email])
+  if user
+    CHARS = ('0'..'9').to_a + ('A'..'Z').to_a + ('a'..'z').to_a
+    new_password = CHARS.sort_by { rand }.join[0...5]
+    Pony.mail({
+      :to => params[:email],
+      :from => 'xtrance1991@gmail.com',
+      :subject => 'Restored password: Sudoku',
+      :body => new_password,
+      :via => :sendmail
+    })
+    user.update_attribute(:password, new_password)
+
+    content_type :json
+    { 
+      :status => 'OK'
+    }.to_json
+  else
+    content_type :json
+    { 
+      :status => 'FAIL'
+    }.to_json
+  end
+end
+
+
 post '/send' do
   Pony.mail({
-    :to => 'k159msc3a4@cartelera.org', # should set to: xtrance1991@gmail.com
+    :to => 'xtrance1991@gmail.com',
     :from => params[:email],
     :subject => params[:username],
     :body => params[:message],
-    :via => :smtp,
-    :via_options => {
-    :address              => 'smtp.gmail.com',
-    :port                 => '587',
-    :enable_starttls_auto => true,
-    :user_name            => 'cvbelarus@gmail.com',
-    :password             => 'dzmitry1982',
-    #:authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
-    :domain               => "sudoku11.herokuapp.com" # the HELO domain provided by the client to the server
-  }
+    :via => :sendmail,
+    # :via_options => {
+    #   :address              => 'smtp.gmail.com',
+    #   :port                 => '587',
+    #   :enable_starttls_auto => true,
+    #   :user_name            => 'cvbelarus@gmail.com',
+    #   :password             => 'dzmitry1982',
+    #   #:authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
+    #   :domain               => "sudoku11.herokuapp.com" # the HELO domain provided by the client to the server
+    # }
   })
 
   content_type :json
