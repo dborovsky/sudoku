@@ -5,5 +5,7 @@ development:
   timeout: 60000
 
 production:
-  adapter:   "sqlite3"
-  database:  "home/deploy/sudoku/shared/db/sudoku_database.sqlite3"
+  adapter:   "postgresql"
+  database:  "sudoku_production"
+  username: "deploy"
+  password: 
