@@ -511,6 +511,12 @@ a {
       resize: none;
       padding: 10px; }
 
+#error-register-email {
+  display: none;
+  color: red;
+  padding: 0px 0px 5px 0;
+}
+
 .header {
   height: 85px;
   background-color: #2d598a; }
@@ -757,6 +763,8 @@ a {
         padding: 0px 10px;
         color: #333;
         outline: none; }
+        .nav .auth-dropdown form input.error {
+          color: red; }
         @media (max-width: 767px) {
           .nav .auth-dropdown form input {
             display: block;
