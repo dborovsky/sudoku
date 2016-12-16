@@ -23,29 +23,35 @@ require(['jQuery', 'game', 'view'], function($, Game, View) { 'use strict';
         $('.generate [data-value="easy"]').on('click', function() {
             Game.level = 35;
             Game.generate(View, Game.level);
+            $('input.field-with-error').removeClass('field-with-error');
         })
 
         $('.generate [data-value="medium"]').on('click', function() {
             Game.level = 40;
             Game.generate(View, Game.level);
+            $('input.field-with-error').removeClass('field-with-error');
         })
 
         $('.generate [data-value="hard"]').on('click', function() {
             Game.level = 45;
             Game.generate(View, Game.level);
+            $('input.field-with-error').removeClass('field-with-error');
         })
 
         $('.generate [data-value="expert"]').on('click', function() {
             Game.level = 50;
             Game.generate(View, Game.level);
+            $('input.field-with-error').removeClass('field-with-error');
         })
 
         $('.generate [data-value="insane"]').on('click', function() {
             Game.level = 55;
             Game.generate(View, Game.level);
+            $('input.field-with-error').removeClass('field-with-error');
         })
 
         $('.new-game').on('click', function(event) {
+            $('input.field-with-error').removeClass('field-with-error');
             if (Game.level) {
                 Game.generate(View, Game.level);
             } else {
