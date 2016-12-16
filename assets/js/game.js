@@ -150,10 +150,10 @@ function ($, Grid, System, Validator, Solver, Levels, Timer, ScoresCounter) { 'u
             var $btn = $(this);
             if ($btn.hasClass('paused')) {
                 Timer.start();
-                $btn.removeClass('paused').text('Pause');
+                $btn.removeClass('paused');
             } else {
                 Timer.stop();
-                $btn.addClass('paused').text('Resume');;
+                $btn.addClass('paused');
             }
         });
 

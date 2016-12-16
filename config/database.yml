@@ -1,8 +1,9 @@
 development:
   adapter:   "sqlite3"
-  database:  "sudoku_database.sqlite3"  
+  database:  "sudoku_database.sqlite3"
+  pool: 10
+  timeout: 60000
 
 production:
   adapter:   "sqlite3"
   database:  "../../db/sudoku_database.sqlite3"
-  

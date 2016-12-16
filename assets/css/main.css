@@ -259,6 +259,8 @@ h1, h2 {
     padding-right: 15px;
     border: none;
     background-color: #ccdff4; }
+  .btn.game.paused {
+    background-color: #9abce3; }
   .btn.game:hover {
     background-color: #9abce3; }
   .btn.hidden {
@@ -399,8 +401,8 @@ a {
     margin: 0 auto;
   }
   .btn.game {
-      padding-left: 47px;
-      padding-right: 47px;
+      padding-left: 34px;
+      padding-right: 34px;
   }
 }
 
@@ -408,6 +410,21 @@ a {
   .grid input {
     width: 45px;
     height: 45px;
+  }
+  .btn.game {
+    padding-left: 23px;
+    padding-right: 24px;
+  }
+  div.timer {
+    right: -237px!important;
+  }
+  .controls .ctrl.floated.left {
+    margin-bottom: 10px;
+  }
+  .controls .ctrl.floated.right {
+    float: left;
+    margin-top: 0px;
+    margin-bottom: 10px;
   }
   .grid-controls {
     width: 423px;
@@ -421,8 +438,8 @@ a {
     height: 50px;
   }
   .btn.game {
-    padding-left: 39px;
-    padding-right: 39px;
+    padding-left: 28px;
+    padding-right: 28px;
   }
   .grid-controls {
     width: 468px;
@@ -436,8 +453,8 @@ a {
     height: 40px;
   }
   .btn.game {
-    padding-left: 28px;
-    padding-right: 28px;
+    padding-left: 19px;
+    padding-right: 19px;
   }
   .grid-controls {
     width: 378px;
@@ -451,8 +468,8 @@ a {
     height: 35px;
   }
   .btn.game {
-    padding-left: 22px;
-    padding-right: 22px;
+    padding-left: 15px;
+    padding-right: 14px;
   }
   .grid-controls {
     width: 333px;
@@ -466,8 +483,8 @@ a {
     height: 30px;
   }
   .btn.game {
-    padding-left: 16px;
-    padding-right: 17px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
   .grid-controls {
     width: 288px;
@@ -779,17 +796,18 @@ a {
 div.timer {
   font-weight: 700;
   position: absolute;
-  right: -117px;
+  right: -163px;
   font-size: 18px;
-  margin-top: 5px; }
+  top: 34px; }
   @media (max-width: 767px) {
     div.timer {
-      position: relative;
+      /*position: relative;*/
       right: 0px;
       float: right; } }
 
 .game-menu {
-  margin: 95px 0 41px 0; }
+  width: 200px;
+  margin: 95px auto 41px auto; }
   @media (max-width: 767px) {
     .game-menu {
       margin-top: 33px; 
@@ -813,7 +831,8 @@ div.timer {
     background: url("../img/icon-best.png"); }
 
 .best-players {
-  width: 200px; }
+  width: 200px;
+  margin: 0 auto; }
   .best-players-head {
     height: 53px;
     padding: 13px 13px 0 13px;

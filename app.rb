@@ -82,7 +82,7 @@ not_found do
 end
 
 get '/' do
-  @top_players = User.all.order('scores desc')
+  @top_players = User.all.order('scores desc').limit(10)
   @stashed_games = current_user ? current_user.stashes : []
   if params[:stashed_game].present?
     @stashed_game = Stash.find(params[:stashed_game])
@@ -98,7 +98,7 @@ end
 
 
 get '/rangliste' do
-  @top_players = User.all.order('scores desc')
+  @top_players = User.all.order('scores desc').limit(25)
   erb :raiting, :layout => :default
 end
 
