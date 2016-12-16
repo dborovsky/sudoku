@@ -1,13 +1,10 @@
 lock '3.4.0'
-
+#set :default_env, { 'RACK_ENV' => "production" }
 set :application, 'sudoku'
 set :repo_url, 'git@github.com:dborovsky/sudoku.git'
 
 set :deploy_to, '/home/deploy/sudoku'
-
-
-#set :default_env, {'RACK_ENV' => 'production'}
-set :linked_files, %w{config/database.yml}
+#set :linked_files, %w{config/database.yml}
 set :linked_dirs, %w{ log }
 
 
@@ -27,6 +24,7 @@ namespace :deploy do
       end
     end
   end
+
 
   after 'deploy', 'migrate'
   after :publishing, 'deploy:restart'
