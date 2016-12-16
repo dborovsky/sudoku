@@ -545,6 +545,7 @@ a {
     padding-top: 30px; }
     .header.not-found .header-logo {
       width: 300px;
+      height: 85px;
       margin: 0 auto; }
   .header .header-logo {
     height: 85px;
