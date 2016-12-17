@@ -1,11 +1,11 @@
 lock '3.4.0'
-
+#require "bundler/capistrano"
+set :default_env, { 'RACK_ENV' => "production" }
 set :application, 'sudoku'
 set :repo_url, 'git@github.com:dborovsky/sudoku.git'
 
 set :deploy_to, '/home/deploy/sudoku'
-
-#set :linked_files, %w{config/database.yml}
+set :linked_files, %w{config/database.yml}
 set :linked_dirs, %w{ log }
 
 
@@ -18,6 +18,16 @@ namespace :deploy do
     end
   end
 
+  task :migrate do
+    on roles(:app) do
+      within release_path do
+        execute :rake, "db:migrate"
+      end
+    end
+  end
+
+
+  after 'deploy', 'migrate'
   after :publishing, 'deploy:restart'
   after :finishing, 'deploy:cleanup'
 end

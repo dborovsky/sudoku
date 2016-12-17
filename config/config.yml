@@ -1,8 +1,0 @@
-# development:
-#   db_adapter:   "sqlite3"
-#   db_location:  "db/development"  
-
-# production:
-#   db_adapter:   "sqlite3"
-#   db_location:  "db/sudoku_database.sqlite3"
-  
