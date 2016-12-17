@@ -1,5 +1,6 @@
 lock '3.4.0'
-#set :default_env, { 'RACK_ENV' => "production" }
+#require "bundler/capistrano"
+set :default_env, { 'RACK_ENV' => "production" }
 set :application, 'sudoku'
 set :repo_url, 'git@github.com:dborovsky/sudoku.git'
 
