@@ -182,7 +182,7 @@ post '/send' do
     :from => params[:email],
     :subject => params[:username],
     :body => params[:message],
-    :via => :sendmail,
+    :via => :sendmail
     # :via_options => {
     #   :address              => 'smtp.gmail.com',
     #   :port                 => '587',
