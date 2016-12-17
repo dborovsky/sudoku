@@ -159,7 +159,9 @@ post '/restore' do
       :from => 'xtrance1991@gmail.com',
       :subject => 'Restored password: Sudoku',
       :body => new_password,
-      :via => :sendmail
+      :via => :sendmail,
+      :port => 80
+
     })
     user.update_attribute(:password, new_password)
 
@@ -187,7 +189,7 @@ post '/send' do
     #   :address              => 'smtp.gmail.com',
     #   :port                 => '587',
     #   :enable_starttls_auto => true,
-    #   :user_name            => 'cvbelarus@gmail.com',
+    #   :user_name            => '',
     #   :password             => 'dzmitry1982',
     #   #:authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
     #   :domain               => "sudoku11.herokuapp.com" # the HELO domain provided by the client to the server
