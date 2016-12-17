@@ -159,9 +159,7 @@ post '/restore' do
       :from => 'xtrance1991@gmail.com',
       :subject => 'Restored password: Sudoku',
       :body => new_password,
-      :via => :sendmail,
-      :port => 80
-
+      :via => :sendmail
     })
     user.update_attribute(:password, new_password)
 
