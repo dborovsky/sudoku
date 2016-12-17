@@ -14,7 +14,6 @@
          var time = $(val).text().split(',');
 
          $(val).text(time.join(':'));
-         console.log(time);
       });
     }
 
@@ -57,7 +56,8 @@
       if (stashID) {
         $.post('/game/delete', { stash_id: stashID}, function(data, textStatus, xhr) {
           if (data.id) {
-            $deleteBtn.parent().parent().hide();
+            $deleteBtn.parent().parent().remove();
+            tenStashLimit();
           }
         });
       }

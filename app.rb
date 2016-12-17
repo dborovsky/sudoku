@@ -85,7 +85,14 @@ get '/' do
   @top_players = User.all.order('scores desc').limit(10)
   @stashed_games = current_user ? current_user.stashes : []
   if params[:stashed_game].present?
-    @stashed_game = Stash.find(params[:stashed_game])
+    load_stash = Stash.find(params[:stashed_game])
+    if current_user
+      if current_user.id == load_stash.user_id
+        @stashed_game = load_stash
+      end
+    else
+      redirect to('/not-found')
+    end
   end
   @hidden = 'hidden'
   erb :index, :layout => :default
@@ -264,6 +271,19 @@ post '/game/completed' do
     game_counter.save
   else
     :ok
+  end
+end
+
+
+post '/game/delete' do
+  stash = Stash.find(params[:stash_id])
+  if params[:stash_id] && stash
+    Stash.destroy(params[:stash_id])
+    content_type :json
+    { :status => 'DELETED', :id => stash.id }.to_json
+  else
+    content_type :json
+    { :status => 'FAILED' }.to_json
   end
 end
 
