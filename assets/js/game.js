@@ -93,6 +93,15 @@ function ($, Grid, System, Validator, Solver, Levels, Timer, ScoresCounter) { 'u
         $('.grid').one('click', function(){ Timer.start(); });
     };
 
+    window.tenStashLimit = function() {
+        var count = $('.stassh').length;
+        if (count == 10) {
+            $('.emmpty').hide();
+        } else if (count < 10) {
+            $('.emmpty').show();
+        }
+    };
+
     function init(View) {
         View.createTable($('#grid-wrapper'));
         viewUpdate = setInterval(View.update, 100);
@@ -161,6 +170,8 @@ function ($, Grid, System, Validator, Solver, Levels, Timer, ScoresCounter) { 'u
             var solutionIsCorrect = Validator.checkSolutionWithMessage( Grid.get() )
         });
 
+        tenStashLimit();
+
         $('#stash-btn').on('click', function () {
             var disabled_array = [ [], [], [], [], [], [], [], [], [] ];
             var stashed_array_numbers = [ [], [], [], [], [], [], [], [], [] ];
@@ -183,7 +194,7 @@ function ($, Grid, System, Validator, Solver, Levels, Timer, ScoresCounter) { 'u
             $.post('/game/stash', { stashed_grid_numbers: stashed_array_numbers, right_solution: right_solution,
                                     disabled_grid: disabled_array, 'scores': resultScores, 'level': current_level , 'time': time }, function (data) {
                                             var tr = '<tr class="spacer"></tr>' +
-                                                     '<tr class="saves-item">' +
+                                                     '<tr class="saves-item stassh">' +
                                                         '<td class="saves-item-mark marked"></td>' +
                                                         '<td class="saves-item-date">' + data.created_at + '</td>' +
                                                         '<td class="saves-item-score desktop">Scores: ' + data.scores + '</td>' +
@@ -194,6 +205,7 @@ function ($, Grid, System, Validator, Solver, Levels, Timer, ScoresCounter) { 'u
                                                         '</td>' +
                                                       '</tr>';
                                         $(tr).insertAfter('.stassh:last');
+                                        tenStashLimit();
                                         $('.delete-save').on('click', deleteSave);
 
                                         window.convertTime();
