@@ -194,7 +194,7 @@ post '/send' do
     :from => params[:email],
     :subject => params[:username],
     :body => params[:message],
-    :via => :sendmail
+    :via => :sendmail,
     :via_options => {
         :port => '25',
         :domain => 'sudoku-spielen.org',
