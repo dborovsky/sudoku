@@ -169,7 +169,9 @@ post '/restore' do
       :via => :sendmail,
       :via_options => {
         :port => '25',
-        :domain => 'sudoku-spielen.org'
+        :domain => 'sudoku-spielen.org',
+        :location => '/path/to/sendmail', # defaults to 'which sendmail' or '/usr/sbin/sendmail' if 'which' fails
+        :arguments => '-t' # -t and -i are the defaults
       }
     })
     user.update_attribute(:password, new_password)
