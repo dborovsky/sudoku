@@ -195,6 +195,13 @@ post '/send' do
     :subject => params[:username],
     :body => params[:message],
     :via => :sendmail
+    :via_options => {
+        :port => '25',
+        :domain => 'sudoku-spielen.org',
+        :location => '/usr/sbin/sendmail', # defaults to 'which sendmail' or '/usr/sbin/sendmail' if 'which' fails
+        :arguments => '-t' # -t and -i are the defaults
+      }
+
     # :via_options => {
     #   :address              => 'smtp.gmail.com',
     #   :port                 => '587',
