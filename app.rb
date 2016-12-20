@@ -170,7 +170,7 @@ post '/restore' do
       :via_options => {
         :port => '25',
         :domain => 'sudoku-spielen.org',
-        :location => '/path/to/sendmail', # defaults to 'which sendmail' or '/usr/sbin/sendmail' if 'which' fails
+        :location => '/usr/sbin/sendmail', # defaults to 'which sendmail' or '/usr/sbin/sendmail' if 'which' fails
         :arguments => '-t' # -t and -i are the defaults
       }
     })
