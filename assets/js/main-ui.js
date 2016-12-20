@@ -26,7 +26,6 @@
       $(".modal-social-icons").jsSocials({
         showLabel: false,
         shareIn: "popup",
-        text: "Я решил судоку за " + restime + " на уровне сложности " + window.level ,
         showCount: false,
         shares: [{
           share: "facebook",
