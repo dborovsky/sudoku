@@ -924,7 +924,14 @@ div.timer {
       padding-right: 10px; }
     .saves .saves-item td.saves-item-date {
       padding-left: 20px;
+      width: 135px;
       text-align: left; }
+    .saves .saves-item td.saves-item-score {
+      width: 135px; }
+    .saves .saves-item td.saves-item-time {
+      width: 135px; }
+    .saves .saves-item td.saves-item-ctrls {
+      width: 135px; }
     .saves .saves-item td.empty {
       text-align: left; }
     .saves .saves-item td.marked {

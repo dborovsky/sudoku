@@ -16,36 +16,36 @@ require(['jQuery', 'game', 'view'], function($, Game, View) { 'use strict';
         if (window.stashedGame) {
             Game.restore(View);
         } else {
-            Game.level = 35;
+            window.level = Game.level = 35;
             Game.generate(View, Game.level);
         }
 
         $('.generate [data-value="easy"]').on('click', function() {
-            Game.level = 35;
+            window.level = Game.level = 35;
             Game.generate(View, Game.level);
             $('input.field-with-error').removeClass('field-with-error');
         })
 
         $('.generate [data-value="medium"]').on('click', function() {
-            Game.level = 40;
+            window.level = Game.level = 40;
             Game.generate(View, Game.level);
             $('input.field-with-error').removeClass('field-with-error');
         })
 
         $('.generate [data-value="hard"]').on('click', function() {
-            Game.level = 45;
+            window.level = Game.level = 45;
             Game.generate(View, Game.level);
             $('input.field-with-error').removeClass('field-with-error');
         })
 
         $('.generate [data-value="expert"]').on('click', function() {
-            Game.level = 50;
+            window.level = Game.level = 50;
             Game.generate(View, Game.level);
             $('input.field-with-error').removeClass('field-with-error');
         })
 
         $('.generate [data-value="insane"]').on('click', function() {
-            Game.level = 55;
+            window.level = Game.level = 55;
             Game.generate(View, Game.level);
             $('input.field-with-error').removeClass('field-with-error');
         })
@@ -55,7 +55,7 @@ require(['jQuery', 'game', 'view'], function($, Game, View) { 'use strict';
             if (Game.level) {
                 Game.generate(View, Game.level);
             } else {
-                Game.level = 35;
+                window.level = Game.level = 35;
                 Game.generate(View, Game.level);
             }
         });

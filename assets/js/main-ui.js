@@ -20,22 +20,29 @@
     convertTime();
     window.convertTime = convertTime;
 
+    window.restime = "";
 
-    $(".modal-social-icons").jsSocials({
-      showLabel: false,
-      showCount: false,
-      shares: [{
-        share: "facebook",
-        logo: "../img/icon-facebook.png"
-      },
-      {
-        share: "googleplus",
-        logo: "../img/icon-google.png"
-      }, {
-        share: "twitter",
-        logo: "../img/icon-twitter.png"
-      }]
-    });
+    window.socialinit = function() {
+      $(".modal-social-icons").jsSocials({
+        showLabel: false,
+        shareIn: "popup",
+        text: "Я решил судоку за " + restime + " на уровне сложности " + window.level ,
+        showCount: false,
+        shares: [{
+          share: "facebook",
+          logo: "../img/icon-facebook.png"
+        },
+        {
+          share: "googleplus",
+          logo: "../img/icon-google.png"
+        }, {
+          share: "twitter",
+          logo: "../img/icon-twitter.png"
+        }]
+      });
+    };
+
+    window.socialinit();
 
 
     ///////////////////
@@ -57,6 +64,7 @@
         $.post('/game/delete', { stash_id: stashID}, function(data, textStatus, xhr) {
           if (data.id) {
             $deleteBtn.parent().parent().remove();
+            $('.spacer[data-spacer-id="' + stashID + '"]').remove();
             tenStashLimit();
           }
         });

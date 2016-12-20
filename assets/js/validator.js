@@ -73,15 +73,38 @@ define('validator', ['system', 'timer', 'levels', 'scores_counter'], function(Sy
 
             $('.res-time').text(time.join(':'));
             $('.res-score').text(resultScores);
+
             window.remodals.remodalCorrect.open();
+            window.restime = $('.res-time').text();
+
+            switch (window.level) {
+                case 35:
+                    window.level = 'Easy';
+                    break;
+                case 40:
+                    window.level = 'Medium';
+                    break;
+                case 45:
+                    window.level = 'Hard';
+                    break;
+                case 50:
+                    window.level = 'Expert';
+                    break;
+                case 55:
+                    window.level = 'insane';
+                    break;
+                default:
+                    window.level = 'Expert';
+                    break;
+            }
+            window.socialinit();
+
 
             Timer.stop();
-
             return true;
         }
         else {
             window.remodals.remodalWrong.open();
-
             return false;
         }
     };
