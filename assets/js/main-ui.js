@@ -77,7 +77,7 @@
     //////////////////////////////////////////////
     // Inform user if he entered existing email //
     //////////////////////////////////////////////
-    $('#c-register-email').on('keyup', function(e) {
+    $('#c-register-email').change(function(e) {
       var $this = $(this),
           $err = $('#error-register-email'),
           value = $(this).val();
@@ -87,12 +87,14 @@
           if (data.status == 'EXIST') {
             $err.show();
             $this.addClass('error');
+            $('#signup-btn').prop('disabled', true).addClass('disabled');
           } else {
             $err.hide();
             $this.removeClass('error');
+            $('#signup-btn').prop('disabled', false).removeClass('disabled');
           }
         });
-      }, 1500);
+      }, 500);
     });
 
 
