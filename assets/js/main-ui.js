@@ -23,22 +23,29 @@
     window.restime = "";
 
     window.socialinit = function() {
-      $(".modal-social-icons").jsSocials({
-        showLabel: false,
-        shareIn: "popup",
-        showCount: false,
-        shares: [{
-          share: "facebook",
-          logo: "../img/icon-facebook.png"
-        },
-        {
-          share: "googleplus",
-          logo: "../img/icon-google.png"
-        }, {
-          share: "twitter",
-          logo: "../img/icon-twitter.png"
-        }]
-      });
+      var urlFb = 'https://www.facebook.com/sharer/sharer.php?u=https://sudoku-spielen.org&display=popup&title=Sudoku spielen&description=Я решил судоку за ' + window.restime + ' на ' + window.level + ' уровне сложности.';
+      var urlTw = 'https://twitter.com/intent/tweet?url=https://sudoku-spielen.org&text=Я решил судоку за ' + window.restime + ' на ' + window.level + ' уровне сложности.';
+      var urlGp = 'https://plus.google.com/share?url=https://sudoku-spielen.org'
+
+      $('#shareLinkFb').attr('href', urlFb);
+      $('#shareLinkTw').attr('href', urlTw);
+      $('#shareLinkGp').attr('href', urlGp);
+      // $(".modal-social-icons").jsSocials({
+      //   showLabel: false,
+      //   shareIn: "popup",
+      //   showCount: false,
+      //   shares: [{
+      //     share: "facebook",
+      //     logo: "../img/icon-facebook.png"
+      //   },
+      //   {
+      //     share: "googleplus",
+      //     logo: "../img/icon-google.png"
+      //   }, {
+      //     share: "twitter",
+      //     logo: "../img/icon-twitter.png"
+      //   }]
+      // });
     };
 
     window.socialinit();
