@@ -141,7 +141,22 @@ end
 
 
 post '/check_email' do
-  user = User.find_by_email(params[:email])
+  user = User.find_by_email(params[:param])
+  if user
+    content_type :json
+    { 
+      :status => 'EXIST'
+    }.to_json
+  else
+    content_type :json
+    { 
+      :status => 'CLEAR'
+    }.to_json
+  end
+end
+
+post '/check_name' do
+  user = User.find_by_name(params[:param])
   if user
     content_type :json
     { 

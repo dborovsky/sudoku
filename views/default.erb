@@ -103,42 +103,12 @@
                 <span>Best players</span>
               </div>
               <div class="best-players-body">
+                <% @top_players.each_with_index do |player, index| %>
                 <div class="item">
-                  <span class="number">1</span>
-                  <span class="name">harry.kiselev</span>
+                  <span class="number"><%= index+1 %></span>
+                  <span class="name"><%= player.name %></span>
                 </div>
-                <div class="item">
-                  <span class="number">2</span>
-                  <span class="name">harry.kiselev</span>
-                </div>
-                <div class="item">
-                  <span class="number">3</span>
-                  <span class="name">harry.kiselev</span>
-                </div>
-                <div class="item">
-                  <span class="number">4</span>
-                  <span class="name">harry.kiselev</span>
-                </div>
-                <div class="item">
-                  <span class="number">5</span>
-                  <span class="name">harry.kiselev</span>
-                </div>
-                <div class="item">
-                  <span class="number">6</span>
-                  <span class="name">harry.kiselev</span>
-                </div>
-                <div class="item">
-                  <span class="number">8</span>
-                  <span class="name">harry.kiselev</span>
-                </div>
-                <div class="item">
-                  <span class="number">9</span>
-                  <span class="name">harry.kiselev</span>
-                </div>
-                <div class="item">
-                  <span class="number">10</span>
-                  <span class="name">harry.kiselev</span>
-                </div>
+                <% end %>
                 <div class="text aligned center">
                     <a href="/rangliste">All players</a>
                 </div>
@@ -180,7 +150,8 @@
                   <form action="/sign_up" method="POST">
                     <div class="form-error" id="error-register-email">Email already taken</div>
                     <input type="text" placeholder="E-mail" name="email" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" id="c-register-email">
-                    <input type="text" placeholder="Username" name="name" required="">
+                    <div class="form-error" id="error-register-name">Username already taken</div>
+                    <input type="text" placeholder="Username" name="name" required="" id="c-register-name">
                     <input type="password" placeholder="Password" id="c-password" name="password" required="">
                     <input type="password" placeholder="Confirm password" id="c-confirm_password" required="">
                     <button type="submit" class="btn" id="signup-btn">Sign up</button>

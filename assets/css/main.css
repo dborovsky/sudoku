@@ -101,7 +101,7 @@ h1, h2 {
 
 .controls .ctrl {
   margin-bottom: 30px;
-  margin-top: 30px; }
+  margin-top: 0px; }
   .controls .ctrl .btn {
     height: 36px;
     font-size: 14px;
@@ -319,6 +319,8 @@ a {
       padding: 0 2px; }
     .table .col-id {
       width: 3%; }
+    .table .col-last {
+      padding-right: 10px; }
   }
 
 
@@ -384,7 +386,8 @@ a {
 .grid input {
     width: 57px;
     height: 57px;
-    font-size: 25px;
+    font-size: 21px;
+    font-family: "Roboto", sans-serif;
     cursor: pointer;
     color: transparent;
     font-weight: 300;
@@ -392,6 +395,19 @@ a {
     text-shadow: 0 0 0 black;
     outline: none;
     border: none;
+}
+
+#pause-btn {
+  position: absolute;
+  top: 0px;
+  right: -250px;
+}
+
+.left-overwrite {
+  width: 70%;
+}
+.right-overwrite {
+  width: 30%;
 }
 
 
@@ -416,7 +432,7 @@ a {
     padding-right: 24px;
   }
   div.timer {
-    right: -237px!important;
+    right: -125px!important;
   }
   .controls .ctrl.floated.left {
     margin-bottom: 10px;
@@ -528,7 +544,7 @@ a {
       resize: none;
       padding: 10px; }
 
-#error-register-email {
+.form-error {
   display: none;
   color: red;
   padding: 0px 0px 5px 0;
@@ -564,7 +580,7 @@ a {
     padding-top: 26px; }
     .header .header-social a {
       display: inline-block;
-      margin-left: 3px;
+      margin-left: 6px;
       font-size: 18px; }
   .header .hamburger {
     width: 25px;
@@ -797,23 +813,26 @@ a {
 div.timer {
   font-weight: 700;
   position: absolute;
-  right: -163px;
+  right: -150px;
   font-size: 18px;
-  top: 34px; }
+  top: 5px; }
   @media (max-width: 767px) {
     div.timer {
       /*position: relative;*/
       right: 0px;
       float: right; } }
 
+.game-row {
+  padding: 0 5%;
+}
 .game-menu {
   width: 200px;
   margin: 95px auto 41px auto; }
   @media (max-width: 767px) {
     .game-menu {
-      margin-top: 33px; 
+      margin-top: 25px; 
       width: 100%;
-      margin-bottom: 7px;
+      margin-bottom: 0px;
       text-align: center; } }
   .game-menu .item {
     margin-bottom: 5px; }
@@ -915,10 +934,11 @@ div.timer {
     height: 10px;
   }
   .saves .saves-item {
-    height: 40px;
+    height: 50px;
     background-color: #f6f6f6; }
     .saves .saves-item td {
       padding: 0px 5px;
+      border-bottom: 10px solid #fff;
       text-align: right; }
     .saves .saves-item td.saves-item-ctrls {
       padding-right: 10px; }
@@ -983,7 +1003,7 @@ div.timer {
         padding-bottom: 12px; } }
     .footer .footer-social a {
       display: inline-block;
-      margin-left: 3px;
+      margin-left: 6px;
       font-size: 18px;}
 
 .jssocials-share-link {

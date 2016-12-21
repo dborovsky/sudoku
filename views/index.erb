@@ -20,8 +20,8 @@
 Zeitschriften auf der ganzen Welt veröffentlicht. Extra für Sie haben wir die Online-Version des klassischen Sudoku-Spiels entwickelt. Sudoku-Rätsel lösen ist der beste Weg, sich zu konzentrieren und die Freizeit nützlich zu verbringen.</p>
         </div>
       </div>
-      <div class="row clearfix">
-        <div class="column two-thirds no-padding mobile">
+      <div class="row clearfix game-row">
+        <div class="column two-thirds no-padding mobile left-overwrite">
           <div class="row clearfix grid-controls relative">
             <div class="controls">
               <div class="ctrl floated left">
@@ -52,7 +52,7 @@ Zeitschriften auf der ganzen Welt veröffentlicht. Extra für Sie haben wir die 
           <div id="grid-wrapper"></div>
         </div>
 
-        <div class="column third flow-opposite no-pad-side">
+        <div class="column third flow-opposite no-pad-side right-overwrite">
           <div class="game-menu">
             <% if current_user %>
               <div class="item">
@@ -70,6 +70,7 @@ Zeitschriften auf der ganzen Welt veröffentlicht. Extra für Sie haben wir die 
               <a href="javascript:void(0)" id="print-btn">Print</a>
             </div>
             <div class="item">
+              <br>
               <% if current_user.present? %>
                 Score: <strong><%= current_user.scores %></strong>
               <% end %>

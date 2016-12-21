@@ -73,28 +73,42 @@
     $('.delete-save').on('click', deleteSave);
 
 
-    //////////////////////////////////////////////
-    // Inform user if he entered existing email //
-    //////////////////////////////////////////////
+    //////////////////////////////////////////////////////////
+    // Inform user if he entered existing email or username //
+    //////////////////////////////////////////////////////////
+    function asyncCheckCredentials(name, $err, value, $this) {
+      $.post('/check_' + name, { param: value }, function(data) {
+        if (data.status == 'EXIST') {
+          $err.show();
+          $this.addClass('error');
+          $('#signup-btn').prop('disabled', true).addClass('disabled');
+        } else {
+          $err.hide();
+          $this.removeClass('error');
+          $('#signup-btn').prop('disabled', false).removeClass('disabled');
+        }
+      });
+    }
+
     $('#c-register-email').change(function(e) {
       var $this = $(this),
           $err = $('#error-register-email'),
           value = $(this).val();
 
       setTimeout(function() {
-        $.post('/check_email', { email: value }, function(data) {
-          if (data.status == 'EXIST') {
-            $err.show();
-            $this.addClass('error');
-            $('#signup-btn').prop('disabled', true).addClass('disabled');
-          } else {
-            $err.hide();
-            $this.removeClass('error');
-            $('#signup-btn').prop('disabled', false).removeClass('disabled');
-          }
-        });
+        asyncCheckCredentials('email', $err, value, $this);
       }, 500);
     });
+
+    $('#c-register-name').change(function(e) {
+      var $this = $(this),
+          $err = $('#error-register-name'),
+          value = $(this).val();
+
+      setTimeout(function() {
+        asyncCheckCredentials('name', $err, value, $this);
+      }, 500);
+    })
 
 
     //////////////////////////////////////////////////////////
