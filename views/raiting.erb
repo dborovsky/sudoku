@@ -59,7 +59,7 @@
             <td class="text aligned right desktop"><%= player.game_counter.expert %></td>
             <td class="text aligned right desktop"><%= player.game_counter.insane %></td>
             <td class="text medium aligned right"><%= player.scores %></td>
-            <td class="text aligned right"><%= player.game_counter.updated_at.strftime("%b %d, %Y") %></td>
+            <td class="text col-last aligned right"><%= player.game_counter.updated_at.strftime("%b %d, %Y") %></td>
           </tr>
           <% end %>
         </tbody>

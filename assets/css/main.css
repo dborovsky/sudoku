@@ -400,16 +400,30 @@ a {
 #pause-btn {
   position: absolute;
   top: 0px;
-  right: -250px;
+  right: -250px; }
+.bngame {
+  margin-top: 30px;
+  display: none;
+}
+@media (max-width: 767px) {
+  #pause-btn {
+    top: 0px;
+    left: 86px; }
+  .tngame {
+    display: none;
+  }
+  .bngame {
+    display: inline-block;
+  }
 }
 
-.left-overwrite {
+/*.left-overwrite {
   width: 70%;
 }
 .right-overwrite {
   width: 30%;
 }
-
+*/
 
 @media (max-width: 767px) {
   .grid-controls {
@@ -417,8 +431,8 @@ a {
     margin: 0 auto;
   }
   .btn.game {
-      padding-left: 34px;
-      padding-right: 34px;
+    padding-left: 48px;
+    padding-right: 48px;
   }
 }
 
@@ -454,8 +468,8 @@ a {
     height: 50px;
   }
   .btn.game {
-    padding-left: 28px;
-    padding-right: 28px;
+    padding-left: 40px;
+    padding-right: 40px;
   }
   .grid-controls {
     width: 468px;
@@ -469,8 +483,8 @@ a {
     height: 40px;
   }
   .btn.game {
-    padding-left: 19px;
-    padding-right: 19px;
+    padding-left: 29px;
+    padding-right: 29px;
   }
   .grid-controls {
     width: 378px;
@@ -484,8 +498,8 @@ a {
     height: 35px;
   }
   .btn.game {
-    padding-left: 15px;
-    padding-right: 14px;
+    padding-left: 24px;
+    padding-right: 23px;
   }
   .grid-controls {
     width: 333px;
@@ -499,8 +513,8 @@ a {
     height: 30px;
   }
   .btn.game {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 18px;
+    padding-right: 17px;
   }
   .grid-controls {
     width: 288px;

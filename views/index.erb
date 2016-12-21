@@ -32,7 +32,7 @@ Zeitschriften auf der ganzen Welt veröffentlicht. Extra für Sie haben wir die 
                   <option value="expert">Expert</option>
                   <option value="insane">Insane</option>
                 </select>
-                <button class="btn new-game">New Game</button>
+                <button class="btn new-game tngame">New Game</button>
                 <div class="timer">
                   <i class="icon timer"></i>
                   <span id="timer">00:00:00</span>
@@ -50,6 +50,9 @@ Zeitschriften auf der ganzen Welt veröffentlicht. Extra für Sie haben wir die 
             </div>
           </div>
           <div id="grid-wrapper"></div>
+          <div class="text-center">
+            <button class="btn new-game bngame">New Game</button>
+          </div>
         </div>
 
         <div class="column third flow-opposite no-pad-side right-overwrite">
@@ -149,7 +152,7 @@ Zeitschriften auf der ganzen Welt veröffentlicht. Extra für Sie haben wir die 
             <td class="text aligned right desktop"><%= player.game_counter.expert %></td>
             <td class="text aligned right desktop"><%= player.game_counter.insane %></td>
             <td class="text medium aligned right"><%= player.scores %></td>
-            <td class="text aligned right"><%= player.game_counter.updated_at.strftime("%b %d, %Y") %></td>
+            <td class="text col-last aligned right"><%= player.game_counter.updated_at.strftime("%b %d, %Y") %></td>
           </tr>
           <% end %>
         </tbody>
