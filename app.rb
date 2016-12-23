@@ -7,6 +7,7 @@ require "sinatra/config_file"
 require "./models/user"
 require "./models/game_counter"
 require "./models/stash"
+require "./models/game"
 require "json"
 require "pony"
 require 'logger'
@@ -76,10 +77,12 @@ helpers do
   end
 end
 
+
 not_found do
   status 404
   erb :notfound
 end
+
 
 get '/' do
   @top_players = User.all.order('scores desc').limit(10)
@@ -155,6 +158,7 @@ post '/check_email' do
   end
 end
 
+
 post '/check_name' do
   user = User.find_by_name(params[:param])
   if user
@@ -203,6 +207,7 @@ post '/restore' do
   end
 end
 
+
 post '/send' do
   Pony.mail({
     :to => 'xtrance1991@gmail.com',
@@ -216,18 +221,8 @@ post '/send' do
         :location => '/usr/sbin/sendmail', # defaults to 'which sendmail' or '/usr/sbin/sendmail' if 'which' fails
         :arguments => '-t' # -t and -i are the defaults
       }
-
-    # :via_options => {
-    #   :address              => 'smtp.gmail.com',
-    #   :port                 => '587',
-    #   :enable_starttls_auto => true,
-    #   :user_name            => 'd.borowskij',
-    #   :password             => '',
-    #   :authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
-    #   :domain               => "localhost" # the HELO domain provided by the client to the server
     }
   )
-
   content_type :json
   { 
     :status =>'OK',
@@ -258,39 +253,43 @@ end
 
 
 post '/sign_in' do
-  # проверяем зарегистрирован ли пользователь
   user = User.find_by_email(params[:email])
   if user && user.authenticate(params[:password])
-    # аутентификация прошла успешно
-    # кладём id в сессию
     session[:uid] = user.id
     flash[:notice] = "Hello, #{user.name}! Welcome to sudoku game."
   else
-    # ошибка в процессе аутентификации
     flash[:alert] = 'Error on sign in proccess.'
   end
-  # редиректим на главную
   redirect to('/')
 end
 
 
 delete '/sign_out' do
-  # чистим сессию
   session.clear
-  # добавляем флэш
   flash[:notice] = 'Sign out succeffuly completed. See you later.'
-  # редиректим на главную
   redirect to('/')
 end
 
 
 post '/game/completed' do
+  @game = Game.find(params[:game_id])
+  if @game.complete == 1
+    add_score = false
+  else
+    add_score = true
+    if @game
+      @game.complete = 1
+      @game.save
+    end
+  end
   if current_user
     # обновляем очки
     user = User.find(current_user.id)
-    scores = params[:scores].to_i
-    user.scores = user.scores + scores
-    user.save
+    if add_score
+      scores = params[:scores].to_i
+      user.scores = user.scores + scores
+      user.save
+    end
     # обновляем количество игр на уровне сложности
     game_counter = user.game_counter
     level = LEVELS_TABLE[ params[:level].to_sym ]
@@ -311,6 +310,15 @@ post '/game/delete' do
   else
     content_type :json
     { :status => 'FAILED' }.to_json
+  end
+end
+
+
+post '/game/create' do
+  @game = Game.new(complete: 0)
+  if @game.save
+    content_type :json
+    { :status => 'CREATED', :game_id => @game.id }.to_json
   end
 end
 

@@ -194,6 +194,7 @@ function ($, Grid, System, Validator, Solver, Levels, Timer, ScoresCounter) { 'u
             $.post('/game/stash', {
                 stashed_grid_numbers: stashed_array_numbers,
                 right_solution: right_solution,
+                game_id: window.game_id,
                 disabled_grid: disabled_array, 
                 'scores': resultScores, 
                 'level': current_level , 

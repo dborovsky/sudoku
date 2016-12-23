@@ -65,9 +65,12 @@ define('validator', ['system', 'timer', 'levels', 'scores_counter'], function(Sy
             // подсчитываем очки
             var resultScores = ScoresCounter.calculateScoresByLevel( current_level );
             // отправляем очки на сервер
-            if ( !ScoresCounter.solveButtonIsPressed() ) {
-                $.post('/game/completed', { 'scores': resultScores, 'level': current_level })
-            }
+            // if ( !ScoresCounter.solveButtonIsPressed() ) {
+                $.post('/game/completed', { 
+                    'game_id': window.game_id,
+                    'scores': resultScores,
+                    'level': current_level });
+            // }
 
             var time = Timer.getTime().split(',');
 
@@ -75,6 +78,7 @@ define('validator', ['system', 'timer', 'levels', 'scores_counter'], function(Sy
             $('.res-score').text(resultScores);
 
             window.remodals.remodalCorrect.open();
+
             window.restime = $('.res-time').text();
 
             switch (window.level) {

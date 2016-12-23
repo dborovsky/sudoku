@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161017151412) do
+ActiveRecord::Schema.define(version: 20161223094512) do
 
   create_table "game_counters", force: :cascade do |t|
     t.integer  "user_id"
@@ -19,6 +19,12 @@ ActiveRecord::Schema.define(version: 20161017151412) do
     t.integer  "hard",       default: 0
     t.integer  "expert",     default: 0
     t.integer  "insane",     default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "games", force: :cascade do |t|
+    t.integer  "complete"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -34,6 +40,7 @@ ActiveRecord::Schema.define(version: 20161017151412) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "game_id"
   end
 
   create_table "users", force: :cascade do |t|
