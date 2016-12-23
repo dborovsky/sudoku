@@ -52,7 +52,11 @@
           <% @top_players.each_with_index do |player, index| %>
           <tr>
             <td class="text aligned right"><%= index+1 %></td>
+            <% if player.is_guest %>
+            <td class="text medium">Guest #<%= player.name %></td>
+            <% else %>
             <td class="text medium"><%= player.name %></td>
+            <% end %>
             <td class="text aligned right desktop"><%= player.game_counter.easy %></td>
             <td class="text aligned right"><%= player.game_counter.medium %></td>
             <td class="text aligned right desktop"><%= player.game_counter.hard %></td>

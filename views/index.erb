@@ -89,7 +89,11 @@ Zeitschriften auf der ganzen Welt veröffentlicht. Extra für Sie haben wir die 
               <% @top_players.each_with_index do |player, index| %>
                 <div class="item">
                   <span class="number"><%= index+1 %></span>
-                  <span class="name"><%= player.name %></span>
+                  <% if player.is_guest %>
+                    <span class="name">Guest #<%= player.name %></span>
+                  <% else %>
+                    <span class="name"><%= player.name %></span>
+                  <% end %>
                 </div>
               <% end %>
               <div class="text aligned center">
@@ -145,7 +149,11 @@ Zeitschriften auf der ganzen Welt veröffentlicht. Extra für Sie haben wir die 
           <% @top_players.each_with_index do |player, index| %>
           <tr>
             <td class="text aligned right"><%= index+1 %></td>
+            <% if player.is_guest %>
+            <td class="text medium">Guest #<%= player.name %></td>
+            <% else %>
             <td class="text medium"><%= player.name %></td>
+            <% end %>
             <td class="text aligned right desktop"><%= player.game_counter.easy %></td>
             <td class="text aligned right"><%= player.game_counter.medium %></td>
             <td class="text aligned right desktop"><%= player.game_counter.hard %></td>

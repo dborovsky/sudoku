@@ -3,6 +3,7 @@ require "pry"
 require "sinatra/activerecord"
 require 'sinatra/flash'
 require 'sinatra/base'
+require "sinatra/cookies"
 require "sinatra/config_file"
 require "./models/user"
 require "./models/game_counter"
@@ -87,6 +88,15 @@ end
 get '/' do
   @top_players = User.all.order('scores desc').limit(10)
   @stashed_games = current_user ? current_user.stashes : []
+  if !current_user
+    CHARS = ('0'..'9').to_a
+    guest_id = CHARS.sort_by { rand }.join[0...9]
+    if !cookies[:guest_id]
+      cookies[:guest_id] = guest_id
+      @guest_user = User.new(name: guest_id, is_guest: 1, password: '123')
+      @guest_user.save!
+    end
+  end
   if params[:stashed_game].present?
     load_stash = Stash.find(params[:stashed_game])
     if current_user
@@ -296,6 +306,17 @@ post '/game/completed' do
     game_counter[level] = user.game_counter[level] + 1
     game_counter.save
   else
+    g_id = cookies[:guest_id]
+    @guest_user = User.find_by('name', g_id)
+    if add_score
+      scores = params[:scores].to_i
+      @guest_user.scores = @guest_user.scores + scores
+      @guest_user.save
+    end
+    game_counter = @guest_user.game_counter
+    level = LEVELS_TABLE[ params[:level].to_sym ]
+    game_counter[level] = @guest_user.game_counter[level] + 1
+    game_counter.save
     :ok
   end
 end

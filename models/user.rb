@@ -7,8 +7,8 @@ class User < ActiveRecord::Base
   has_one :game_counter
   has_many :stashes
 
-  validates :email, presence: true
-  validates :email, uniqueness: true
+  # validates :email, presence: true
+  # validates :email, uniqueness: true
 
   after_create do
     GameCounter.create(user_id: self.id)

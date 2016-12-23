@@ -104,7 +104,11 @@
                 <% @top_players.each_with_index do |player, index| %>
                 <div class="item">
                   <span class="number"><%= index+1 %></span>
+                  <% if player.is_guest %>
+                  <span class="name">Guest #<%= player.name %></span>
+                  <% else %>
                   <span class="name"><%= player.name %></span>
+                  <% end %>
                 </div>
                 <% end %>
                 <div class="text aligned center">

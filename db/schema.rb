@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161223094512) do
+ActiveRecord::Schema.define(version: 20161223141626) do
 
   create_table "game_counters", force: :cascade do |t|
     t.integer  "user_id"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20161223094512) do
     t.integer  "scores",          default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "is_guest"
   end
 
 end
