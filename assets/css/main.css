@@ -57,6 +57,13 @@ h1, h2 {
     display: none;
   }
 }
+@media (max-width: 520px) {
+  th .nice-select {
+    font-size: 12px;
+    padding-left: 7px;
+    padding-right: 25px;
+  }
+}
 
 @media (max-width: 767px) {
   .mobile {
@@ -408,6 +415,7 @@ a {
 @media (max-width: 767px) {
   #pause-btn {
     top: 0px;
+    max-width: 150px;
     left: 86px; }
   .tngame {
     display: none;
@@ -837,8 +845,11 @@ div.timer {
       float: right; } }
 
 .game-row {
-  padding: 0 5%;
-}
+  padding: 0 5%; }
+  @media (max-width: 767px) {
+    .game-row {
+      padding: 0 0; }
+  }
 .game-menu {
   width: 200px;
   margin: 95px auto 41px auto; }
