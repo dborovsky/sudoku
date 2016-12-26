@@ -315,8 +315,7 @@ post '/game/completed' do
     game_counter[level] = user.game_counter[level] + 1
     game_counter.save
   else
-    g_id = cookies[:guest_id]
-    @guest_user = User.find_by('name', g_id)
+    @guest_user = User.where(name: cookies[:guest_id]).first
     if add_score
       scores = params[:scores].to_i
       @guest_user.scores = @guest_user.scores + scores
