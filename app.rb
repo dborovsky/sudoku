@@ -79,7 +79,7 @@ helpers do
 
   def guest_scores
     if cookies[:guest_id]
-      @guest_user = User.find_by('name', cookies[:guest_id])
+      @guest_user = User.find_by('name', cookies[:guest_id]).first
     else
       return false
     end
