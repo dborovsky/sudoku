@@ -76,6 +76,8 @@ Zeitschriften auf der ganzen Welt veröffentlicht. Extra für Sie haben wir die 
               <br>
               <% if current_user.present? %>
                 Score: <strong><%= current_user.scores %></strong>
+              <% else %>
+                Score: <strong><%= guest_scores.scores %></strong>
               <% end %>
             </div>
           </div>

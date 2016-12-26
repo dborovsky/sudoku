@@ -76,6 +76,14 @@ helpers do
       return false
     end
   end
+
+  def guest_scores
+    if cookies[:guest_id]
+      @guest_user = User.find_by('name', cookies[:guest_id])
+    else
+      return false
+    end
+  end
 end
 
 
